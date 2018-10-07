@@ -22,8 +22,6 @@ public class MainActivityTest
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule(MainActivity.class);
 
-
-
     @Test
     public void homeActivityTest()
     {
