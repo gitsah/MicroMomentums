@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--tools:context=".MainActivity">-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<TextView
+android:id="@+id/name"
+android:layout_width="100dp"
+android:layout_height="wrap_content"
+android:text="name"
+android:padding="10dp" android:textAlignment="textEnd"
+/>
+
+<TextView
+android:id="@+id/symbol"
+android:layout_width="100dp"
+android:layout_height="wrap_content"
+android:text="symbol"
+android:padding="10dp"
+android:layout_marginRight="20dp"
+/>
+
+<!--<TextView-->
+<!--android:id="@+id/last"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="last"-->
+<!--android:padding="10dp"-->
+<!--/>-->
+
+<!--<TextView-->
+<!--android:id="@+id/change"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="change %"-->
+<!--android:padding="10dp"-->
+<!--/>-->
+<!--<TextView-->
+<!--android:id="@+id/volume"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="high"-->
+<!--android:padding="10dp"-->
+<!--/>-->
+<!--<TextView-->
+<!--android:id="@+id/high"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="Buy?"-->
+<!--android:padding="10dp"-->
+<!--/>-->
+
+
+</LinearLayout>
+
