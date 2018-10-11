@@ -1,5 +1,7 @@
 package com.ad340.micromomentums;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelStoreOwner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -14,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseViewModel viewModel = new FirebaseViewModel();
+
 
         lst= (ListView) findViewById(R.id.listView);
         StockListView slv = new StockListView(this, name, symbol);
