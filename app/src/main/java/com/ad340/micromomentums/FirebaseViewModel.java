@@ -1,24 +1,37 @@
 package com.ad340.micromomentums;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
-import java.util.List;
+import com.google.firebase.database.DataSnapshot;
 
-public class FirebaseViewModel extends ViewModel {
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
+public class FirebaseViewModel {
     private FirebaseDB dataModel;
+    private ArrayList<Stock> stocks;
 
-    private MutableLiveData<List<Stock>> stocks;
-    public LiveData<List<Stock>> getStocks() {
-        if (stocks == null) {
-            stocks = new MutableLiveData<>();
-            loadStocks();
-        }
-        return stocks;
+    public FirebaseViewModel() {
+        dataModel = new FirebaseDB();
     }
 
-    private void loadStocks() {
-        dataModel.getStocks();
+    public void getStocks(Consumer<ArrayList<Stock>> responseCallback) {
+        System.out.println("hit here");
+        dataModel.getStocks(
+                (DataSnapshot dataSnapshot) -> {
+                    ArrayList<Stock> stocks = new ArrayList<>();
+                    for (DataSnapshot stockSnapshot : dataSnapshot.getChildren()) {
+                        Stock stock = stockSnapshot.getValue(Stock.class);
+                        assert stock != null;
+                        stocks.add(stock);
+                    }
+                    responseCallback.accept(stocks);
+                },
+                (databaseError -> System.out.println("Error reading Stocks: " + databaseError))
+        );
+    }
+
+    public void clear() {
+        dataModel.clear();
     }
 }
