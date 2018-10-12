@@ -11,17 +11,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 public class StockListView extends ArrayAdapter<String> {
 
-    private String[] name;
     private String[] symbol;
+    private String[] value;
     private Activity context;
 
-    public StockListView(Activity context, String[] name,String[] symbol) {
-        super(context, R.layout.listview_layout, name);
+    public StockListView(Activity context, String[] symbol,String[] value) {
+        super(context, R.layout.listview_layout, symbol);
 
-        this.name = name;
         this.symbol = symbol;
+        this.value = value;
         this.context = context;
     }
 
@@ -42,8 +45,8 @@ public class StockListView extends ArrayAdapter<String> {
             viewHolder = (ViewHolder) r.getTag();
         }
 
-        viewHolder.tvw1.setText(name[position]);
-        viewHolder.tvw2.setText(symbol[position]);
+        viewHolder.tvw1.setText(symbol[position]);
+        viewHolder.tvw2.setText(value[position]);
         return r;
 
     }
@@ -53,8 +56,8 @@ public class StockListView extends ArrayAdapter<String> {
         TextView tvw2;
 
         ViewHolder(View v){
-            tvw1 = (TextView) v.findViewById(R.id.name);
-            tvw2 = (TextView) v.findViewById(R.id.symbol);
+            tvw1 = (TextView) v.findViewById(R.id.symbol);
+            tvw2 = (TextView) v.findViewById(R.id.value);
 
         }
     }
