@@ -1,7 +1,5 @@
 package com.ad340.micromomentums;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelStoreOwner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -10,11 +8,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Stock> stocks;
-
     ListView lst;
-    String[] name = {"NAME","Microsoft:", "Apple:", "Coca-Cola:"};
-    String[] symbol = {"SYMBOL","MSFT", "AAPL", "KO"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +20,12 @@ public class MainActivity extends AppCompatActivity {
         FirebaseViewModel viewModel = new FirebaseViewModel();
         viewModel.getStocks(
                 (ArrayList<Stock> stocks) -> {
-                    this.stocks = stocks;
-                    StockListView slv = new StockListView(this, stocks);
+                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
+                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
+
+                    StockListView slv = new StockListView(this, stockSymbols, stockValues);
                     lst.setAdapter(slv);
                 }
         );
-
-//        StockListView slv = new StockListView(this, stocks);
-//        lst.setAdapter(slv);
-
     }
 }

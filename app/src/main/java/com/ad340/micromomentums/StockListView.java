@@ -20,15 +20,11 @@ public class StockListView extends ArrayAdapter<String> {
     private String[] value;
     private Activity context;
 
-//    public void updateStocks(ArrayList<Stock> stocks) {
-//        this.stocks = stocks;
-//    }
+    public StockListView(Activity context, String[] symbol,String[] value) {
+        super(context, R.layout.listview_layout, symbol);
 
-    public StockListView(Activity context, ArrayList<Stock> stocks) {
-        super(context, R.layout.listview_layout);
-
-        this.symbol = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
-        this.value = stocks.stream().map(Stock::getValue).toArray(String[]::new);
+        this.symbol = symbol;
+        this.value = value;
         this.context = context;
     }
 
