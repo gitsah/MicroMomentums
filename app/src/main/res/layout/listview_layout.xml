@@ -18,7 +18,8 @@ android:id="@+id/symbol"
 android:layout_width="100dp"
 android:layout_height="wrap_content"
 android:text="symbol"
-android:padding="10dp" android:textAlignment="textEnd"
+android:padding="10dp"
+android:textAlignment="textEnd"
 />
 
 <TextView
