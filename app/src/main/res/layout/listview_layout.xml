@@ -15,52 +15,37 @@ tools:context=".MainActivity">
 
 <TextView
 android:id="@+id/symbol"
-android:layout_width="100dp"
+android:layout_width="80dp"
 android:layout_height="wrap_content"
 android:text="symbol"
 android:padding="10dp"
 android:textAlignment="textEnd"
 />
 
-<TextView
-android:id="@+id/value"
-android:layout_width="100dp"
-android:layout_height="wrap_content"
-android:text="value"
-android:padding="10dp"
-android:layout_marginRight="20dp"
-/>
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="value"
+        android:textAlignment="textStart"/>
 
-<!--<TextView-->
-<!--android:id="@+id/last"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="last"-->
-<!--android:padding="10dp"-->
-<!--/>-->
+    <TextView
+        android:id="@+id/last5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="last5min"
+        android:textAlignment="textStart"/>
 
-<!--<TextView-->
-<!--android:id="@+id/change"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="change %"-->
-<!--android:padding="10dp"-->
-<!--/>-->
-<!--<TextView-->
-<!--android:id="@+id/volume"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="high"-->
-<!--android:padding="10dp"-->
-<!--/>-->
-<!--<TextView-->
-<!--android:id="@+id/high"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="Buy?"-->
-<!--android:padding="10dp"-->
-<!--/>-->
-
+    <TextView
+        android:id="@+id/last10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:padding="10dp"
+        android:text="last10min"
+        android:textAlignment="textStart"/>
 
 </LinearLayout>
 
