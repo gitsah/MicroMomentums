@@ -22,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
                 (ArrayList<Stock> stocks) -> {
                     String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
                     String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
+                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
+                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
 
-                    StockListView slv = new StockListView(this, stockSymbols, stockValues);
+                    StockListView slv = new StockListView(this, stockSymbols, stockValues, stockLast5s, stockLast10s);
                     lst.setAdapter(slv);
                 }
         );
