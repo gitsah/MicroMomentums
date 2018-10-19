@@ -7,3 +7,6 @@
 /captures
 .externalNativeBuild
 google-services.json
+.firebaserc
+firebase.json
+/functions/*
