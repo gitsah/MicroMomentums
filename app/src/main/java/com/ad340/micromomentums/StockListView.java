@@ -18,13 +18,17 @@ public class StockListView extends ArrayAdapter<String> {
 
     private String[] symbol;
     private String[] value;
+    private String[] last5;
+    private String[] last10;
     private Activity context;
 
-    public StockListView(Activity context, String[] symbol,String[] value) {
+    public StockListView(Activity context, String[] symbol, String[] value, String[] last5, String[] last10) {
         super(context, R.layout.listview_layout, symbol);
 
         this.symbol = symbol;
         this.value = value;
+        this.last5 = last5;
+        this.last10 = last10;
         this.context = context;
     }
 
@@ -47,6 +51,8 @@ public class StockListView extends ArrayAdapter<String> {
 
         viewHolder.tvw1.setText(symbol[position]);
         viewHolder.tvw2.setText(value[position]);
+        viewHolder.tvw3.setText(last5[position]);
+        viewHolder.tvw4.setText(last10[position]);
         return r;
 
     }
@@ -54,11 +60,14 @@ public class StockListView extends ArrayAdapter<String> {
     class ViewHolder {
         TextView tvw1;
         TextView tvw2;
+        TextView tvw3;
+        TextView tvw4;
 
         ViewHolder(View v){
             tvw1 = (TextView) v.findViewById(R.id.symbol);
             tvw2 = (TextView) v.findViewById(R.id.value);
-
+            tvw3 = (TextView) v.findViewById(R.id.last5);
+            tvw4 = (TextView) v.findViewById(R.id.last10);
         }
     }
 }
