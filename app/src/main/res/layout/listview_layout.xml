@@ -6,10 +6,6 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-
-
-
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -19,14 +15,13 @@
 
         <TextView
             android:id="@+id/symbol"
-            android:layout_width="70dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="symbol"
             android:padding="10dp"
             android:textAlignment="textStart"
             android:background="#cdcdcd"
-            android:textColor="#000"
-            />
+            android:textColor="#000" />
 
         <TextView
             android:id="@+id/value"
@@ -56,16 +51,19 @@
         <!--change visibility to "gone"-->
         <ImageView
             android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:visibility="visible"
+            android:padding="5dp"
             android:src="@mipmap/checkmark"/>
 
         <!--change visibility to "gone"-->
         <ImageView
             android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
             android:visibility="visible"
             android:src="@mipmap/redcross"/>
+
     </LinearLayout>
 
 </LinearLayout>
