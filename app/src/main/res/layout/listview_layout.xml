@@ -1,51 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--tools:context=".MainActivity">-->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".MainActivity">
-
-<TextView
-android:id="@+id/symbol"
-android:layout_width="80dp"
-android:layout_height="wrap_content"
-android:text="symbol"
-android:padding="10dp"
-android:textAlignment="textEnd"
-/>
-
-    <TextView
-        android:id="@+id/value"
-        android:layout_width="74dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="value"
-        android:textAlignment="textStart"/>
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/last5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="last5min"
-        android:textAlignment="textStart" />
 
-    <TextView
-        android:id="@+id/last10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:padding="10dp"
-        android:text="last10min"
-        android:textAlignment="textStart"/>
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/symbol"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="symbol"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            android:background="#cdcdcd"
+            android:textColor="#000"
+            />
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="value"
+            android:textAlignment="textStart"/>
+
+        <TextView
+            android:id="@+id/last5"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="last5"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/last10"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="00dp"
+            android:padding="10dp"
+            android:text="last10"
+            android:textAlignment="textStart" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/checkmark"/>
+
+    </LinearLayout>
 
 </LinearLayout>
-
