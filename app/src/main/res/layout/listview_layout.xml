@@ -53,11 +53,19 @@
             android:text="last10"
             android:textAlignment="textStart" />
 
+        <!--change visibility to "gone"-->
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:visibility="visible"
             android:src="@mipmap/checkmark"/>
 
+        <!--change visibility to "gone"-->
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="visible"
+            android:src="@mipmap/redcross"/>
     </LinearLayout>
 
 </LinearLayout>
