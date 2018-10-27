@@ -1,69 +1,75 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--&lt;!&ndash;<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
-    <!--&lt;!&ndash;xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
-    <!--&lt;!&ndash;xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-    <!--&lt;!&ndash;tools:context=".MainActivity">&ndash;&gt;-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+tools:context=".MainActivity">
 
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--tools:context=".MainActivity">-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-        <!--<TextView-->
-            <!--android:id="@+id/name"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="name"-->
-            <!--android:padding="10dp"-->
-            <!--/>-->
+    <TextView
+        android:id="@+id/symbolHead"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="#000000"
+        android:text="Symbol"
+        android:padding="10dp"
+        android:textAlignment="textStart" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/symbol"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="symbol"-->
-            <!--android:padding="10dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--/>-->
+    <TextView
+        android:id="@+id/currentHead"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="#000000"
+        android:padding="10dp"
+        android:text="Current"
+        android:textAlignment="textStart" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/last"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="last"-->
-            <!--android:padding="10dp"-->
-            <!--/>-->
+    <TextView
+        android:id="@+id/last5Head"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="#000000"
+        android:padding="10dp"
+        android:text="Last 5"
+        android:textAlignment="textStart"/>
 
-        <!--<TextView-->
-            <!--android:id="@+id/change"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="change %"-->
-            <!--android:padding="10dp"-->
-            <!--/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/volume"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="high"-->
-            <!--android:padding="10dp"-->
-            <!--/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/high"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Buy?"-->
-            <!--android:padding="10dp"-->
-            <!--/>-->
+    <TextView
+        android:id="@+id/last10Head"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="#000000"
+        android:layout_marginRight="0dp"
+        android:padding="10dp"
+        android:text="last 10"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/buy"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="#000000"
+        android:padding="10dp"
+        android:text="Buy?"
+        android:textAlignment="textStart"/>
+
+</LinearLayout>
 
 
-
-    <!--</LinearLayout>-->
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/listView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
+
+</LinearLayout>
