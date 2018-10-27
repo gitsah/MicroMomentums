@@ -9,4 +9,6 @@
 google-services.json
 .firebaserc
 firebase.json
+firebase-debug.log
+package-lock.json
 /functions/*
