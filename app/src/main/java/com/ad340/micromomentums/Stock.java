@@ -97,8 +97,9 @@ public class Stock implements Comparable<Stock>{
         this.last15 = last15;
     }
 
-    public boolean getIsRising(){
-        return isRising;
+    public String getIsRising(){
+        String rising = String.valueOf(isRising);
+        return rising;
     }
 }
 

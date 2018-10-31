@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lst;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +32,19 @@ public class MainActivity extends AppCompatActivity {
                     String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
                     String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
                     String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
+                    String stockRising[] = stocks.stream().map(Stock::getIsRising).toArray(String[]::new);
 
-                    StockListView slv = new StockListView(this, stockSymbols, stockValues, stockLast5s, stockLast10s);
+                    //make and array of the however many stocks are passes through
+                    boolean[] isRisingArrayToPass = new boolean[stockRising.length];
+
+                    for (int i = 0; i < stockRising.length; i++){
+                        // get the string, convert it, addd it the boolean array
+                        isRisingArrayToPass[i] = Boolean.valueOf(stockRising[i]);
+                    }
+
+
+
+                    StockListView slv = new StockListView(this, stockSymbols, stockValues, stockLast5s, stockLast10s, isRisingArrayToPass);
                     lst.setAdapter(slv);
                 }
         );
