@@ -48,21 +48,33 @@
             android:text="last10"
             android:textAlignment="textStart" />
 
-        <!--change visibility to "gone"-->
+        <!--&lt;!&ndash;change visibility to "gone"&ndash;&gt;-->
         <ImageView
+            android:id="@+id/momentum_true"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:padding="5dp"
             android:src="@mipmap/checkmark"/>
 
+
         <!--change visibility to "gone"-->
         <ImageView
+            android:id="@+id/momentum_false"
             android:layout_width="30dp"
             android:layout_height="40dp"
             android:padding="5dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:src="@mipmap/redcross"/>
+
+        <TextView
+        android:id="@+id/momentum"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="00dp"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="textStart" />
 
     </LinearLayout>
 

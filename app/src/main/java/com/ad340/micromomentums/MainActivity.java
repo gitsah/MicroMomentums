@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lst;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
                 (ArrayList<Stock> stocks) -> {
                     //Find isRising for each stock
                     for(Stock stock : stocks) stock.calcualteRising();
-                    //Sort stocks by amount of change descending
+
+                    //Sort stocks by amount of change descending  //<-- TEMP SHUT OFF SHORT, BRING BACK TO TEST!
                     stocks.sort(Collections.reverseOrder());
 
                     //Create arrays from List of Stocks to pass to ListView
