@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ public class Tab2Fragment extends Fragment {
         View view = inflater.inflate(R.layout.tab2_fragment,container,false);
 
         ListView list = (ListView) view.findViewById(R.id.listView);
-
 
         FirebaseViewModel viewModel = new FirebaseViewModel();
         viewModel.getStocks(
