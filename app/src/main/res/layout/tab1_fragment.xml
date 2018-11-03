@@ -3,12 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:layout_margin="100dp"
-        android:text="Tab 1"
-        />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="25sp"-->
+        <!--android:layout_margin="100dp"-->
+        <!--android:text="Tab 1"-->
+        <!--/>-->
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="300dp"
+        android:src="@mipmap/ic_micro_logo" />
 </LinearLayout>

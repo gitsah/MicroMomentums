@@ -26,6 +26,11 @@
         <!--app:title="@string/app_name">-->
         <!--</android.support.v7.widget.Toolbar>-->
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:src="@mipmap/ic_micro_banner" />
+
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
