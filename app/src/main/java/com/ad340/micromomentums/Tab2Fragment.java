@@ -16,14 +16,11 @@ import java.util.Collections;
 public class Tab2Fragment extends Fragment {
 
     private static final String TAG = "Tab2Fragment";
-    StockListView slv;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tab2_fragment,container,false);
-
-
-
 
         ListView list = (ListView) view.findViewById(R.id.listView);
 
@@ -43,7 +40,7 @@ public class Tab2Fragment extends Fragment {
                     String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
                     String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
 
-                    slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
+                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
 
                     list.setAdapter(slv);
                 }

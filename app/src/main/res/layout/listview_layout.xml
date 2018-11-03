@@ -68,13 +68,22 @@
             android:src="@mipmap/redcross"/>
 
         <TextView
-        android:id="@+id/momentum"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="00dp"
-        android:padding="10dp"
-        android:text=""
-        android:textAlignment="textStart" />
+            android:id="@+id/momentum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="00dp"
+            android:padding="10dp"
+            android:text=""
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/percentChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="00dp"
+            android:padding="10dp"
+            android:text="%"
+            android:textAlignment="textStart" />
 
     </LinearLayout>
 

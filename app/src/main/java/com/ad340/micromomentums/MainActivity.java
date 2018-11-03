@@ -31,34 +31,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-//        lst = (ListView) findViewById(R.id.listView);
-//
-//        FirebaseViewModel viewModel = new FirebaseViewModel();
-//        viewModel.getStocks(
-//                (ArrayList<Stock> stocks) -> {
-//                    //Find isRising for each stock
-//                    for(Stock stock : stocks) stock.calcualteRising();
-//
-//                    //Sort stocks by amount of change descending  //<-- TEMP SHUT OFF SHORT, BRING BACK TO TEST!
-//                    stocks.sort(Collections.reverseOrder());
-//
-//                    //Create arrays from List of Stocks to pass to ListView
-//                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
-//                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
-//                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
-//                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
-//
-//                    StockListView slv = new StockListView(this, stockSymbols, stockValues, stockLast5s, stockLast10s);
-//
-//
-//
-//                    lst.setAdapter(slv);
-//
-//                }
-//        );
-
         //Tab Layout
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
@@ -72,9 +44,9 @@ public class MainActivity extends FragmentActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "TAB1");
-        adapter.addFragment(new Tab2Fragment(), "TAB2");
-        adapter.addFragment(new Tab3Fragment(), "TAB3");
+        adapter.addFragment(new Tab1Fragment(), "How It Works");
+        adapter.addFragment(new Tab2Fragment(), "Stocks");
+        adapter.addFragment(new Tab3Fragment(), "About");
 
         viewPager.setAdapter(adapter);
 
