@@ -79,6 +79,10 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="00dp"
+            android:shadowDx="6"
+            android:shadowDy="6"
+            android:shadowColor="@color/black"
+            android:textColor="@color/white"
             android:padding="10dp"
             android:text="%"
             android:textAlignment="textStart" />
