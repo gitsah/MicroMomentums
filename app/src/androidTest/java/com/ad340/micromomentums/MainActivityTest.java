@@ -39,7 +39,7 @@ public class MainActivityTest
 //        Stock stock2 = new Stock("xx", "34", "25", "23", "3");
 //        stock1.calcualteRising();
 //        stock2.calcualteRising();
-//        stock1.compareTo(stock2);
+//        stock1.compargit eTo(stock2);
 //        stock2.compareTo(stock1);
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
