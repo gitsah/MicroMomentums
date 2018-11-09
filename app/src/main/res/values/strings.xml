@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Micro Momentums</string>
     <string name="hello_world">Hello World!</string>
+    <string name="about"> Momentum stocks are traditionally defined by their sustained and increasing movement in price, either up or down.
+        Momentum stock strategies, in turn, are those stock trading strategies that scan the universe of stocks for those
+        making the strongest gains (or losses) in the least amount of time. Momentum traders focus on acceleration in a stock’s price or in a company’s earnings or revenues.
+        These traders then take on a long or short position in the stock, in the hopes that the momentum will continue in the same direction. Micro momentum takes on the basic concepts
+        of momentum stock strategies, but applies it on a smaller scale. The micro momentum app focuses on the increase or decrease of stocks every five minutes. Here we provide you
+        with real time data for stock prices and what the trend is based off the last three five minute increments.
+    </string>
+    <string name="how">We list five stocks that have been selected for live price tracking using a real time stock service. Their stock symbols are listed in the gray Symbol column. The next three columns track the price of the stock in five minute intervals, the first being its current price.
+    The next column shows the price five minutes ago, and the next displays the price ten minutes ago. The final column is where the magic really happens. If you see a green check mark next to the stock that means it has been increasing for all three time intervals and is showing a trend of micro momentum!
+   Keep an eye out as these numbers are updated constantly during market hours, you never know when a new surge will happen! </string>
 </resources>
