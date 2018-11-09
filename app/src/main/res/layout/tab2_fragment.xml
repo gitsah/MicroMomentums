@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/heading"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/symbolHead"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:background="#000000"
+            android:text="Symbol"
+            android:padding="10dp"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/currentHead"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:background="#000000"
+            android:padding="10dp"
+            android:text="Current"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/last5Head"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="10dp"
+            android:text="Last 5"
+            android:textAlignment="textStart"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/last10Head"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="10dp"
+            android:text="last 10"
+            android:textAlignment="textStart"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="10dp"
+            android:text="Momentum"
+            android:textAlignment="textStart"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/percentage"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:background="#000000"
+            android:padding="10dp"
+            android:text="% change"
+            android:textAlignment="textStart"/>
+    </LinearLayout>
+
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
