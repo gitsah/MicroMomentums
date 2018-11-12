@@ -64,11 +64,11 @@ public class StockListView extends ArrayAdapter<String> {
         viewHolder.tvw5.setText(String.valueOf(percentChange));
 
         if (percentChange < 0) {
-            viewHolder.tvw5.setBackgroundColor(Color.RED);
-            //viewHolder.tvw5.setTextColor(Color.WHITE);
+            viewHolder.tvw5.setBackgroundColor(Color.parseColor("#990000"));
+            viewHolder.tvw5.setShadowLayer(1,1,1, Color.parseColor("#000000"));
         } else if (percentChange > 0) {
-            viewHolder.tvw5.setBackgroundColor(Color.GREEN);
-            //viewHolder.tvw5.setTextColor(Color.WHITE);
+            viewHolder.tvw5.setBackgroundColor(Color.parseColor("#6E8771"));
+            viewHolder.tvw5.setShadowLayer(1,1,1, Color.parseColor("#000000"));
         }
 
         if (isRising) {

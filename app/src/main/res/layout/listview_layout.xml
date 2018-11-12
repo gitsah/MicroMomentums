@@ -18,9 +18,10 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="symbol"
+            android:textStyle="bold"
             android:padding="10dp"
             android:textAlignment="textStart"
-            android:background="#cdcdcd"
+            android:background="#b9c6ba"
             android:textColor="#000" />
 
         <TextView
