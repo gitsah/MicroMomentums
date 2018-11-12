@@ -55,7 +55,7 @@
             android:layout_height="40dp"
             android:visibility="gone"
             android:padding="5dp"
-            android:src="@mipmap/checkmark"/>
+            android:src="@mipmap/check"/>
 
 
         <!--change visibility to "gone"-->
@@ -65,7 +65,7 @@
             android:layout_height="40dp"
             android:padding="5dp"
             android:visibility="gone"
-            android:src="@mipmap/redcross"/>
+            android:src="@mipmap/redx"/>
 
         <TextView
             android:id="@+id/momentum"
