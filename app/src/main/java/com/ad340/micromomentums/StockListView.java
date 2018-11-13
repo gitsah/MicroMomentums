@@ -15,24 +15,18 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-public class StockListView extends ArrayAdapter<String> {
+public class StockListView extends ArrayAdapter<Stock> {
 
-    private String[] symbol;
-    private String[] value;
-    private String[] last5;
-    private String[] last10;
-    private Boolean[] momentum;
+    private ArrayList<Stock> stocks;
     private Activity context;
 
-    public StockListView(Activity context, String[] symbol, String[] value, String[] last5, String[] last10, Boolean[] momentum) {
-        super(context, R.layout.listview_layout, symbol);
+    public StockListView(Activity context, ArrayList<Stock> stocks) {
+        super(context, R.layout.listview_layout, stocks);
 
-        this.symbol = symbol;
-        this.value = value;
-        this.last5 = last5;
-        this.last10 = last10;
-        this.momentum = momentum;
+        this.stocks = stocks;
         this.context = context;
     }
 
@@ -53,15 +47,14 @@ public class StockListView extends ArrayAdapter<String> {
             viewHolder = (ViewHolder) r.getTag();
         }
 
-        viewHolder.tvw1.setText(symbol[position]);
-        viewHolder.tvw2.setText(value[position]);
-        viewHolder.tvw3.setText(last5[position]);
-        viewHolder.tvw4.setText(last10[position]);
+        viewHolder.tvw1.setText(stocks.get(position).getSymbol());
+        viewHolder.tvw2.setText(stocks.get(position).getValue());
+        viewHolder.tvw3.setText(stocks.get(position).getLast5());
+        viewHolder.tvw4.setText(stocks.get(position).getLast10());
 
-        boolean isRising = momentum[position];
-        //boolean isRising = doubleCheck(value[position],last5[position],last10[position]);
+        boolean isRising = stocks.get(position).getIsRising();
 
-        double percentChange = percentChange(value[position],last5[position],last10[position]);
+        double percentChange = percentChange(stocks.get(position).getValue(),stocks.get(position).getLast5(),stocks.get(position).getLast10());
         viewHolder.tvw5.setText(String.valueOf(percentChange));
 
         if (percentChange < 0) {
@@ -109,22 +102,6 @@ public class StockListView extends ArrayAdapter<String> {
             tvX = (TextView) v.findViewById(R.id.momentum);
 
         }
-    }
-
-    /**
-     * If we want to increase by more just make some conditions and then break out with the rise is more or
-     * something that we might want ot do.
-     * @param current
-     * @param last5
-     * @param last10
-     * @return
-     */
-    private boolean doubleCheck(String current, String last5, String last10){
-        double currentVal = Double.valueOf(current);
-        double last5Val = Double.valueOf(last5);
-        double last10Val = Double.valueOf(last10);
-
-        return (currentVal > last5Val && last5Val > last10Val);
     }
 
     /**

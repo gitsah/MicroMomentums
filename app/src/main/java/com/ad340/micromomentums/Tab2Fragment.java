@@ -35,14 +35,15 @@ public class Tab2Fragment extends Fragment {
                     stocks.sort(Collections.reverseOrder());
 
                     //Create arrays from List of Stocks to pass to ListView
-                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
-                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
-                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
-                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
-                    Boolean momentum[] = stocks.stream().map(Stock::getIsRising).toArray(Boolean[]::new);
+//                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
+//                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
+//                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
+//                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
+//                    Boolean momentum[] = stocks.stream().map(Stock::getIsRising).toArray(Boolean[]::new);
 
-                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s, momentum);
+//                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s, momentum);
 
+                    StockListView slv = new StockListView(getActivity(), stocks);
                     list.setAdapter(slv);
                 }
         );
