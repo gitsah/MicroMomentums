@@ -22,16 +22,17 @@ public class StockListView extends ArrayAdapter<String> {
     private String[] value;
     private String[] last5;
     private String[] last10;
-    private boolean[] momentum;
+    private Boolean[] momentum;
     private Activity context;
 
-    public StockListView(Activity context, String[] symbol, String[] value, String[] last5, String[] last10) {
+    public StockListView(Activity context, String[] symbol, String[] value, String[] last5, String[] last10, Boolean[] momentum) {
         super(context, R.layout.listview_layout, symbol);
 
         this.symbol = symbol;
         this.value = value;
         this.last5 = last5;
         this.last10 = last10;
+        this.momentum = momentum;
         this.context = context;
     }
 
@@ -57,8 +58,8 @@ public class StockListView extends ArrayAdapter<String> {
         viewHolder.tvw3.setText(last5[position]);
         viewHolder.tvw4.setText(last10[position]);
 
-
-        boolean isRising = doubleCheck(value[position],last5[position],last10[position]);
+        boolean isRising = momentum[position];
+        //boolean isRising = doubleCheck(value[position],last5[position],last10[position]);
 
         double percentChange = percentChange(value[position],last5[position],last10[position]);
         viewHolder.tvw5.setText(String.valueOf(percentChange));

@@ -31,7 +31,7 @@ public class Tab2Fragment extends Fragment {
                     //Find isRising for each stock
                     for(Stock stock : stocks) stock.calcualteRising();
 
-                    //Sort stocks by amount of change descending  //<-- TEMP SHUT OFF SHORT, BRING BACK TO TEST!
+                    //Sort stocks by amount of change descending
                     stocks.sort(Collections.reverseOrder());
 
                     //Create arrays from List of Stocks to pass to ListView
@@ -39,8 +39,9 @@ public class Tab2Fragment extends Fragment {
                     String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
                     String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
                     String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
+                    Boolean momentum[] = stocks.stream().map(Stock::getIsRising).toArray(Boolean[]::new);
 
-                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
+                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s, momentum);
 
                     list.setAdapter(slv);
                 }
