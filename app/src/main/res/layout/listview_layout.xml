@@ -28,6 +28,8 @@
             android:id="@+id/value"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:padding="10dp"
             android:text="value"
             android:textAlignment="textStart"/>
@@ -36,6 +38,8 @@
             android:id="@+id/last5"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:padding="10dp"
             android:text="last5"
             android:textAlignment="textStart" />
@@ -44,6 +48,8 @@
             android:id="@+id/last10"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:layout_marginRight="10dp"
             android:padding="10dp"
             android:text="last10"
@@ -72,6 +78,7 @@
             android:id="@+id/momentum"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:text=""
             android:textAlignment="textStart" />
 
@@ -79,6 +86,7 @@
             android:id="@+id/percentChange"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_marginRight="00dp"
             android:padding="10dp"
             android:text="%"
