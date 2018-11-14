@@ -18,15 +18,18 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="symbol"
+            android:textStyle="bold"
             android:padding="10dp"
             android:textAlignment="textStart"
-            android:background="#cdcdcd"
+            android:background="#b9c6ba"
             android:textColor="#000" />
 
         <TextView
             android:id="@+id/value"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:padding="10dp"
             android:text="value"
             android:textAlignment="textStart"/>
@@ -35,6 +38,8 @@
             android:id="@+id/last5"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:padding="10dp"
             android:text="last5"
             android:textAlignment="textStart" />
@@ -43,6 +48,8 @@
             android:id="@+id/last10"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:layout_marginRight="10dp"
             android:padding="10dp"
             android:text="last10"
@@ -55,7 +62,7 @@
             android:layout_height="40dp"
             android:visibility="gone"
             android:padding="5dp"
-            android:src="@mipmap/checkmark"/>
+            android:src="@mipmap/check"/>
 
 
         <!--change visibility to "gone"-->
@@ -65,12 +72,13 @@
             android:layout_height="40dp"
             android:padding="5dp"
             android:visibility="gone"
-            android:src="@mipmap/redcross"/>
+            android:src="@mipmap/redx"/>
 
         <TextView
             android:id="@+id/momentum"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:text=""
             android:textAlignment="textStart" />
 
@@ -78,6 +86,7 @@
             android:id="@+id/percentChange"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_marginRight="00dp"
             android:shadowDx="6"
             android:shadowDy="6"
