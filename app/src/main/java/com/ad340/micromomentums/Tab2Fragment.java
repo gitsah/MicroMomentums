@@ -40,9 +40,24 @@ public class Tab2Fragment extends Fragment {
                     String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
                     String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
 
-                    StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
+                    try {
 
-                    list.setAdapter(slv);
+                        StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
+                        list.setAdapter(slv);
+
+                    } catch (NullPointerException ex) {
+
+                        String[] stockSymbolsTest = {"TEST"};
+                        String[] stockValuesTest = {"curr"};
+                        String[] stockLast5Test = {"l5"};
+                        String[] stockLast10Test = {"l10"};
+
+                        StockListView slvTest = new StockListView(getActivity(), stockSymbolsTest, stockValuesTest, stockLast5Test, stockLast10Test);
+
+                        list.setAdapter(slvTest);
+                    }
+
+                    ;
                 }
         );
 
