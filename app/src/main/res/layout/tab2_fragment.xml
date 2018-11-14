@@ -43,7 +43,7 @@
 
             <TextView
                 android:id="@+id/currentHead"
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
                 android:background="#000000"
@@ -53,7 +53,7 @@
 
             <TextView
                 android:id="@+id/last5Head"
-                android:layout_width="82dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="#000000"
                 android:padding="10dp"
@@ -63,21 +63,11 @@
 
             <TextView
                 android:id="@+id/last10Head"
-                android:layout_width="75dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="#000000"
                 android:padding="10dp"
                 android:text="last 10"
-                android:textAlignment="textStart"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/buy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:padding="10dp"
-                android:text="Momentum"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF" />
 
@@ -90,6 +80,18 @@
                 android:padding="10dp"
                 android:text="% change"
                 android:textAlignment="textStart"/>
+
+            <TextView
+                android:id="@+id/buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:padding="10dp"
+                android:text="Momentum"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF" />
+
+
         </LinearLayout>
 
 
