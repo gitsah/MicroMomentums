@@ -52,9 +52,10 @@ public class MainActivityTest
         public void onCreateClickTabs(){
 
         onView(withText("How It Works")).check(matches(withText("How It Works")));
-
-        onView(withId(R.id.container)).perform(swipeLeft());
+        onView(withText("How It Works")).perform(click());
+        //onView(withId(R.id.container)).perform(swipeLeft());
         onView(withText("Stocks")).check(matches(withText("Stocks")));
+        onView(withText("Stocks")).perform(click());
 
         SystemClock.sleep(1800);
         Stock stock1 = new Stock("xx", "34", "23", "13", "4");
@@ -67,7 +68,9 @@ public class MainActivityTest
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(2).perform(click());
 
-        onView(withId(R.id.container)).perform(swipeLeft());
+        //onView(withId(R.id.container)).perform(swipeLeft());
+        onView(withText("About")).perform(swipeLeft());
+
         onView(withText("About")).check(matches(withText("About")));
     }
 
