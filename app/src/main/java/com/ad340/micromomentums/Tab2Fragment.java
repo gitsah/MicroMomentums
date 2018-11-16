@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Tab2Fragment extends Fragment {
         View view = inflater.inflate(R.layout.tab2_fragment,container,false);
 
         ListView list = (ListView) view.findViewById(R.id.listView);
+
 
         FirebaseViewModel viewModel = new FirebaseViewModel();
         viewModel.getStocks(
@@ -67,9 +69,24 @@ public class Tab2Fragment extends Fragment {
         );
 
         list.setAdapter(listViewAdapter);
+        TextView btn = view.findViewById(R.id.symbolHead);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+
+    private void messageToast(View v) {
+
+        Toast.makeText(getContext(), "Symbol", Toast.LENGTH_SHORT).show();
+
     }
 
 
