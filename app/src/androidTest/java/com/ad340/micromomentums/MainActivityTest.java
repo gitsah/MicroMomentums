@@ -58,6 +58,13 @@ public class MainActivityTest
         onView(withText("Stocks")).perform(click());
 
         SystemClock.sleep(1800);
+
+        onView(withText("Symbol")).perform(click()).perform(click());
+        onView(withText("Current")).perform(click()).perform(click());
+        onView(withText("Last 5")).perform(click()).perform(click());
+        onView(withText("last 10")).perform(click()).perform(click());
+        onView(withText("% change")).perform(click()).perform(click());
+        onView(withText("Momentum")).perform(click()).perform(click());
         Stock stock1 = new Stock("xx", "34", "23", "13", "4");
         Stock stock2 = new Stock("xx", "34", "25", "23", "3");
         stock1.calcualteRising();
