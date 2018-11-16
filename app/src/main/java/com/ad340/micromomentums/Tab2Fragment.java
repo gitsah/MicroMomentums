@@ -58,7 +58,6 @@ public class Tab2Fragment extends Fragment {
                         list.setAdapter(slvTest);
                     }
 
-                    ;
                 }
         );
 
@@ -73,8 +72,5 @@ public class Tab2Fragment extends Fragment {
         return view;
     }
 
-    public static void messageToast(View v) {
-        Toast.makeText(v.getContext(), "This is a message displayed in a Toast", Toast.LENGTH_SHORT).show();
 
-    }
 }
