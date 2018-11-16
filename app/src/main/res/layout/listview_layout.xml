@@ -74,7 +74,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:padding="5dp"
-            android:src="@mipmap/check"
+            android:src="@mipmap/uparrow"
             android:visibility="gone" />
 
 
@@ -85,7 +85,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:padding="5dp"
-            android:src="@mipmap/redx"
+            android:src="@mipmap/downarrow"
             android:visibility="gone" />
 
         <TextView
