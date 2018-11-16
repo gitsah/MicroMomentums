@@ -10,22 +10,31 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Tab2Fragment extends Fragment {
 
     private static final String TAG = "Tab2Fragment";
+    private ListView list;
+    private StockListView slv;
+    private ArrayList<Stock> mStocks;
+
+    private boolean symbolAsc = false;
+    private boolean valueAsc = false;
+    private boolean last5Asc = false;
+    private boolean last10Asc = false;
+    private boolean percentChangeAsc = false;
+    private boolean momentumAsc = false;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tab2_fragment,container,false);
 
-        ListView list = (ListView) view.findViewById(R.id.listView);
-
+        list = (ListView) view.findViewById(R.id.listView);
 
         FirebaseViewModel viewModel = new FirebaseViewModel();
         viewModel.getStocks(
@@ -35,8 +44,9 @@ public class Tab2Fragment extends Fragment {
                     //Sort stocks by amount of change descending
                     stocks.sort(Collections.reverseOrder());
 
-//                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
-                    StockListView slv = new StockListView(getActivity(), stocks);
+                    mStocks = stocks;
+//                  String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
+                    slv = new StockListView(getActivity(), stocks);
                     list.setAdapter(slv);
                 }
         );
@@ -55,51 +65,67 @@ public class Tab2Fragment extends Fragment {
         TextView percentage = view.findViewById(R.id.percentage);
         TextView buy = view.findViewById(R.id.buy);
 
-        symbol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        symbol.setOnClickListener(v -> {
+            Comparator<Stock> symbolComparator = Comparator.comparing(Stock::getSymbol);
+            mStocks.sort(symbolComparator);
+
+            if(!symbolAsc)
+                Collections.reverse(mStocks);
+            symbolAsc = !symbolAsc;
+
+            slv.refreshList(mStocks);
         });
-        currentHead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        currentHead.setOnClickListener(v -> {
+            Comparator<Stock> valueComparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getValue()));
+            mStocks.sort(valueComparator);
+
+            if(!valueAsc)
+                Collections.reverse(mStocks);
+            valueAsc = !valueAsc;
+
+            slv.refreshList(mStocks);
         });
-        last5Head.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        last5Head.setOnClickListener(v -> {
+            Comparator<Stock> last5Comparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getLast5()));
+            mStocks.sort(last5Comparator);
+
+            if(!last5Asc)
+                Collections.reverse(mStocks);
+            last5Asc = !last5Asc;
+
+            slv.refreshList(mStocks);
         });
-        last10Head.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        last10Head.setOnClickListener(v -> {
+            Comparator<Stock> last10Comparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getLast10()));;
+            mStocks.sort(last10Comparator);
+
+            if(!last10Asc)
+                Collections.reverse(mStocks);
+            last10Asc = !last10Asc;
+
+            slv.refreshList(mStocks);
         });
-        percentage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        percentage.setOnClickListener(v -> {
+            Comparator<Stock> percentageComparator = Comparator.comparing(Stock::getPercentChange);
+            mStocks.sort(percentageComparator);
+
+            if(!percentChangeAsc)
+                Collections.reverse(mStocks);
+            percentChangeAsc = !percentChangeAsc;
+
+            slv.refreshList(mStocks);
         });
-        buy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messageToast(v);
-            }
+        buy.setOnClickListener(v -> {
+            Collections.sort(mStocks);
+
+            if(!momentumAsc)
+                Collections.reverse(mStocks);
+            momentumAsc = !momentumAsc;
+
+            slv.refreshList(mStocks);
         });
 
         // Inflate the layout for this fragment
         return view;
     }
-
-
-    private void messageToast(View v) {
-        Toast.makeText(getContext(), "Symbol", Toast.LENGTH_SHORT).show();
-    }
-
-
 }
