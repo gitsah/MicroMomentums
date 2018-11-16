@@ -47,9 +47,45 @@ public class Tab2Fragment extends Fragment {
         );
 
         list.setAdapter(listViewAdapter);
-        TextView btn = view.findViewById(R.id.symbolHead);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        TextView symbol = view.findViewById(R.id.symbolHead);
+        TextView currentHead = view.findViewById(R.id.currentHead);
+        TextView last5Head = view.findViewById(R.id.last5Head);
+        TextView last10Head = view.findViewById(R.id.last10Head);
+        TextView percentage = view.findViewById(R.id.percentage);
+        TextView buy = view.findViewById(R.id.buy);
+        
+        symbol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
+        currentHead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
+        last5Head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
+        last10Head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
+        percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageToast(v);
+            }
+        });
+        buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 messageToast(v);
@@ -63,7 +99,6 @@ public class Tab2Fragment extends Fragment {
 
     private void messageToast(View v) {
         Toast.makeText(getContext(), "Symbol", Toast.LENGTH_SHORT).show();
-
     }
 
 
