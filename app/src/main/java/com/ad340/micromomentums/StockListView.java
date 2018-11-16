@@ -2,7 +2,6 @@ package com.ad340.micromomentums;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,11 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class StockListView extends ArrayAdapter<Stock> {
 
@@ -54,7 +49,7 @@ public class StockListView extends ArrayAdapter<Stock> {
 
         boolean isRising = stocks.get(position).getIsRising();
 
-        double percentChange = percentChange(stocks.get(position).getValue(),stocks.get(position).getLast5(),stocks.get(position).getLast10());
+        double percentChange = stocks.get(position).getPercentChange();
         viewHolder.tvw5.setText(String.valueOf(percentChange));
 
         if (percentChange < 0) {
@@ -103,30 +98,30 @@ public class StockListView extends ArrayAdapter<Stock> {
         }
     }
 
-    /**
-     * Take a percent change between each interval of 5 minutes and average them.
-     * So the final percent displayed is the average change for each interval.
-     * @param current
-     * @param last5
-     * @param last10
-     * @return
-     */
-    private double percentChange(String current, String last5, String last10){
-        double currentVal = Double.valueOf(current);
-        double last5Val = Double.valueOf(last5);
-        double last10Val = Double.valueOf(last10);
-
-        // Differnce from last 10 to last 5
-        double change5to10 = ((last5Val - last10Val) / last10Val) * 100;
-
-        double changeCurrentTo5 = ((currentVal - last5Val) / last5Val) * 100;
-
-        double avgPercentChange = (change5to10 + changeCurrentTo5) / 2;
-
-        DecimalFormat df = new DecimalFormat("###.####");
-
-        return Double.valueOf(df.format(avgPercentChange));
-
-
-    }
+//    /**
+//     * Take a percent change between each interval of 5 minutes and average them.
+//     * So the final percent displayed is the average change for each interval.
+//     * @param current
+//     * @param last5
+//     * @param last10
+//     * @return
+//     */
+//    private double percentChange(String current, String last5, String last10){
+//        double currentVal = Double.valueOf(current);
+//        double last5Val = Double.valueOf(last5);
+//        double last10Val = Double.valueOf(last10);
+//
+//        // Differnce from last 10 to last 5
+//        double change5to10 = ((last5Val - last10Val) / last10Val) * 100;
+//
+//        double changeCurrentTo5 = ((currentVal - last5Val) / last5Val) * 100;
+//
+//        double avgPercentChange = (change5to10 + changeCurrentTo5) / 2;
+//
+//        DecimalFormat df = new DecimalFormat("###.####");
+//
+//        return Double.valueOf(df.format(avgPercentChange));
+//
+//
+//    }
 }
