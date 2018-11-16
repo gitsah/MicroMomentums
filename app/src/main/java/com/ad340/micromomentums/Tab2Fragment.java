@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -70,5 +71,10 @@ public class Tab2Fragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    public static void messageToast(View v) {
+        Toast.makeText(v.getContext(), "This is a message displayed in a Toast", Toast.LENGTH_SHORT).show();
+
     }
 }
