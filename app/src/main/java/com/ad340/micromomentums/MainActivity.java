@@ -1,5 +1,6 @@
 package com.ad340.micromomentums;
 
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -32,11 +33,13 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         //Tab Layout
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+        //mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
         // Set up  the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
+
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
