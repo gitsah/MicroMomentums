@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.text.DecimalFormat;
+
 @IgnoreExtraProperties
 public class Stock implements Comparable<Stock>{
 
@@ -13,6 +15,7 @@ public class Stock implements Comparable<Stock>{
     private String last10;
     private String last15;
     private boolean isRising;
+    private double percentChange;
 
     public Stock() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -27,18 +30,36 @@ public class Stock implements Comparable<Stock>{
     }
 
     public void calcualteRising(){
+        //calculate if it's rising
         this.isRising = (Float.parseFloat(last15) < Float.parseFloat(last10) && Float.parseFloat(last10)
                 < Float.parseFloat(last5) && Float.parseFloat(last5) < Float.parseFloat(value));
+
+        //calculate percentage changed
+        double currentVal = Double.valueOf(value);
+        double last5Val = Double.valueOf(last5);
+        double last10Val = Double.valueOf(last10);
+        double last15Val = Double.valueOf(last15);
+
+        //Difference from last 10 to last 5
+        double change10to15 = ((last10Val - last15Val) / last15Val) * 100;
+
+        double change5to10 = ((last5Val - last10Val) / last10Val) * 100;
+
+        double changeCurrentTo5 = ((currentVal - last5Val) / last5Val) * 100;
+
+        double avgPercentChange = (change5to10 + changeCurrentTo5 + change10to15) / 3;
+
+        DecimalFormat df = new DecimalFormat("###.####");
+
+        this.percentChange = Double.valueOf(df.format(avgPercentChange));
     }
 
     @Override
     public int compareTo(@NonNull Stock o) {
         if(this.isRising) {
             if (o.isRising){
-                float thisChange = Float.parseFloat(this.value) / Float.parseFloat(this.last15);
-                float oChange = Float.parseFloat(o.value) / Float.parseFloat(o.last15);
-                if(thisChange == oChange) return 0;
-                return (thisChange > oChange) ? 1 : -1;
+                if(this.percentChange == o.percentChange) return 0;
+                return (this.percentChange > o.percentChange) ? 1 : -1;
             }
             else{
                 return 1;
@@ -49,10 +70,8 @@ public class Stock implements Comparable<Stock>{
                 return -1;
             }
             else{
-                float thisChange = Float.parseFloat(this.value) / Float.parseFloat(this.last15);
-                float oChange = Float.parseFloat(o.value) / Float.parseFloat(o.last15);
-                if(thisChange == oChange) return 0;
-                return (thisChange > oChange) ? 1 : -1;
+                if(this.percentChange == o.percentChange) return 0;
+                return (this.percentChange > o.percentChange) ? 1 : -1;
             }
         }
     }
@@ -100,5 +119,8 @@ public class Stock implements Comparable<Stock>{
     public boolean getIsRising(){
         return isRising;
     }
-}
 
+    public double getPercentChange(){
+        return percentChange;
+    }
+}

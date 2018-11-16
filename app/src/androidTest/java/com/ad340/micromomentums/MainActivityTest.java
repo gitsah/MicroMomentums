@@ -66,6 +66,7 @@ public class MainActivityTest
         onView(withText("last 10")).perform(click()).perform(click());
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("last 10")).perform(swipeLeft());
+        onView(withText("last 10")).perform(swipeLeft());
         onView(withText("% change")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(click()).perform(click());
         Stock stock1 = new Stock("xx", "34", "23", "13", "4");
