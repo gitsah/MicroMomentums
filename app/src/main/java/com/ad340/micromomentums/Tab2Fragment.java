@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,38 +30,16 @@ public class Tab2Fragment extends Fragment {
                 (ArrayList<Stock> stocks) -> {
                     //Find isRising for each stock
                     for(Stock stock : stocks) stock.calcualteRising();
-
-                    //Sort stocks by amount of change descending  //<-- TEMP SHUT OFF SHORT, BRING BACK TO TEST!
+                    //Sort stocks by amount of change descending
                     stocks.sort(Collections.reverseOrder());
 
-                    //Create arrays from List of Stocks to pass to ListView
-                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
-                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
-                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
-                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
-
-                    try {
-
-                        StockListView slv = new StockListView(getActivity(), stockSymbols, stockValues, stockLast5s, stockLast10s);
-                        list.setAdapter(slv);
-
-                    } catch (NullPointerException ex) {
-
-                        String[] stockSymbolsTest = {"TEST"};
-                        String[] stockValuesTest = {"curr"};
-                        String[] stockLast5Test = {"l5"};
-                        String[] stockLast10Test = {"l10"};
-
-                        StockListView slvTest = new StockListView(getActivity(), stockSymbolsTest, stockValuesTest, stockLast5Test, stockLast10Test);
-
-                        list.setAdapter(slvTest);
-                    }
-
-                    ;
+//                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
+                    StockListView slv = new StockListView(getActivity(), stocks);
+                    list.setAdapter(slv);
                 }
         );
 
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
+        ArrayAdapter<Stock> listViewAdapter = new ArrayAdapter<>(
                 getActivity(),
                 android.R.layout.simple_list_item_1
         );
