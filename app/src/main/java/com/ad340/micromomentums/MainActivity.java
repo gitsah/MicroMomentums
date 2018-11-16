@@ -1,42 +1,40 @@
 package com.ad340.micromomentums;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class MainActivity extends FragmentActivity {
+import java.util.ArrayList;
+import java.util.Collections;
 
-    private static final String TAG = "MainActivity";
-    private SectionsPageAdapter mSectionsPageAdapter;
-    private ViewPager mViewPager;
+public class MainActivity extends AppCompatActivity {
+
     ListView lst;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Tab Layout
-        //mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+        lst= (ListView) findViewById(R.id.listView);
 
-        // Set up  the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
+        FirebaseViewModel viewModel = new FirebaseViewModel();
+        viewModel.getStocks(
+                (ArrayList<Stock> stocks) -> {
+                    //Find isRising for each stock
+                    for(Stock stock : stocks) stock.calcualteRising();
+                    //Sort stocks by amount of change descending
+                    stocks.sort(Collections.reverseOrder());
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-    }
+                    //Create arrays from List of Stocks to pass to ListView
+                    String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
+                    String stockValues[] = stocks.stream().map(Stock::getValue).toArray(String[]::new);
+                    String stockLast5s[] = stocks.stream().map(Stock::getLast5).toArray(String[]::new);
+                    String stockLast10s[] = stocks.stream().map(Stock::getLast10).toArray(String[]::new);
 
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "How It Works");
-        adapter.addFragment(new Tab2Fragment(), "Stocks");
-        adapter.addFragment(new Tab3Fragment(), "About");
-
-        viewPager.setAdapter(adapter);
-
+                    StockListView slv = new StockListView(this, stockSymbols, stockValues, stockLast5s, stockLast10s);
+                    lst.setAdapter(slv);
+                }
+        );
     }
 }
