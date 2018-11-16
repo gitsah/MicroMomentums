@@ -54,7 +54,7 @@ public class Tab2Fragment extends Fragment {
         TextView last10Head = view.findViewById(R.id.last10Head);
         TextView percentage = view.findViewById(R.id.percentage);
         TextView buy = view.findViewById(R.id.buy);
-        
+
         symbol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
