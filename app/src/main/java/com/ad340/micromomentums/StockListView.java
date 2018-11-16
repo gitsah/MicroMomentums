@@ -68,11 +68,7 @@ public class StockListView extends ArrayAdapter<Stock> {
             viewHolder.iv1.setVisibility(convertView.GONE);
             viewHolder.iv2.setVisibility(convertView.VISIBLE);
         }
-
-        // uncomment out to see the result of isRising
-        //viewHolder.tvX.setText(String.valueOf(isRising));
         return r;
-
     }
 
     class ViewHolder {
@@ -94,8 +90,12 @@ public class StockListView extends ArrayAdapter<Stock> {
             iv1  = (ImageView)v.findViewById(R.id.momentum_true);
             iv2 = (ImageView) v.findViewById(R.id.momentum_false);
             tvX = (TextView) v.findViewById(R.id.momentum);
-
         }
+    }
+
+    void refreshList(ArrayList<Stock> stocks){
+        this.stocks = stocks;
+        notifyDataSetChanged();
     }
 
 //    /**
