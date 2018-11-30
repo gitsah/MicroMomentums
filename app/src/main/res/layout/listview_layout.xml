@@ -96,6 +96,18 @@
             android:textAlignment="textStart"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/DailyPercentChange"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="6"
+            android:shadowDy="6"
+            android:text="% change"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
