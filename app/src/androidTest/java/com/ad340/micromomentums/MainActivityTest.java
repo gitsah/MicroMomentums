@@ -20,7 +20,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.hasLinks;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.CoreMatchers.anything;
+//import static org.hamcrest.CoreMatchers.anything;
 import static org.junit.Assert.*;
 
 
@@ -69,7 +69,6 @@ public class MainActivityTest
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("last 10")).perform(swipeLeft());
-        onView(withText("last 10")).perform(swipeLeft());
         onView(withText("Avg % change")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(click()).perform(click());
         onView(withText("Day % change")).perform(click()).perform(click());
@@ -81,9 +80,9 @@ public class MainActivityTest
         stock2.compareTo(stock1);
 
 
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(2).perform(click());
+//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
+//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
+//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(2).perform(click());
 
         //onView(withId(R.id.container)).perform(swipeLeft());
         onView(withText("About")).perform(swipeLeft());
