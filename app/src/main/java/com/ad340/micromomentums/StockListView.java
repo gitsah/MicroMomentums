@@ -104,7 +104,7 @@ public class StockListView extends ArrayAdapter<Stock> {
         TextView tvw6;
         ImageView iv1;
         ImageView iv2;
-        TextView tvX;
+        //TextView tvX;
 
         ViewHolder(View v){
             tvw1 = (TextView) v.findViewById(R.id.symbol);
@@ -115,7 +115,7 @@ public class StockListView extends ArrayAdapter<Stock> {
             tvw6 = (TextView) v.findViewById(R.id.DailyPercentChange);
             iv1  = (ImageView)v.findViewById(R.id.momentum_true);
             iv2 = (ImageView) v.findViewById(R.id.momentum_false);
-            tvX = (TextView) v.findViewById(R.id.momentum);
+            //tvX = (TextView) v.findViewById(R.id.momentum);
         }
     }
 
