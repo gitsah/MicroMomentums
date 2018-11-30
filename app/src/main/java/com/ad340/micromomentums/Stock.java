@@ -14,6 +14,8 @@ public class Stock implements Comparable<Stock>{
     private String last5;
     private String last10;
     private String last15;
+    private String lastUp;
+    private String originalValue;
     private boolean isRising;
     private double percentChange;
 
@@ -21,12 +23,14 @@ public class Stock implements Comparable<Stock>{
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Stock(String symbol, String value, String last5, String last10, String last15) {
+    public Stock(String symbol, String value, String last5, String last10, String last15, String lastUp, String originalValue) {
         this.symbol = symbol;
         this.value = value;
         this.last5 = last5;
         this.last10 = last10;
         this.last15 = last15;
+        this.lastUp = lastUp;
+        this.originalValue = originalValue;
     }
 
     public void calcualteRising(){
@@ -114,6 +118,22 @@ public class Stock implements Comparable<Stock>{
 
     public void setLast15(String last15) {
         this.last15 = last15;
+    }
+
+    public String getLastUp() {
+        return lastUp;
+    }
+
+    public void setLastUp(String lastUp) {
+        this.lastUp = lastUp;
+    }
+
+    public String getOriginalValue() {
+        return originalValue;
+    }
+
+    public void setOriginalValue(String originalValue) {
+        this.originalValue = originalValue;
     }
 
     public boolean getIsRising(){
