@@ -28,6 +28,7 @@ public class Tab2Fragment extends Fragment {
     private boolean last10Asc = false;
     private boolean percentChangeAsc = false;
     private boolean momentumAsc = false;
+    private boolean dailyPercentAsc = false;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class Tab2Fragment extends Fragment {
         TextView last10Head = view.findViewById(R.id.last10Head);
         TextView percentage = view.findViewById(R.id.percentage);
         TextView buy = view.findViewById(R.id.buy);
+        TextView dailyPercent = view.findViewById(R.id.DailyPercentageHeader);
 
         symbol.setOnClickListener(v -> {
             Comparator<Stock> symbolComparator = Comparator.comparing(Stock::getSymbol);
@@ -121,6 +123,17 @@ public class Tab2Fragment extends Fragment {
             if(!momentumAsc)
                 Collections.reverse(mStocks);
             momentumAsc = !momentumAsc;
+
+            slv.refreshList(mStocks);
+        });
+
+        dailyPercent.setOnClickListener(v -> {
+            Comparator<Stock> percentageDailyComparator = Comparator.comparing(Stock::getDayPercentChange);
+            mStocks.sort(percentageDailyComparator);
+
+            if(!dailyPercentAsc)
+                Collections.reverse(mStocks);
+            dailyPercentAsc = !dailyPercentAsc;
 
             slv.refreshList(mStocks);
         });

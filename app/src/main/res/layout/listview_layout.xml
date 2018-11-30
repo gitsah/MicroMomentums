@@ -72,7 +72,7 @@
             android:id="@+id/momentum_true"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="35dp"
             android:padding="5dp"
             android:src="@mipmap/uparrow"
             android:visibility="gone" />
@@ -83,7 +83,7 @@
             android:id="@+id/momentum_false"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="35dp"
             android:padding="5dp"
             android:src="@mipmap/downarrow"
             android:visibility="gone" />
@@ -98,7 +98,7 @@
 
         <TextView
             android:id="@+id/DailyPercentChange"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:shadowColor="@color/black"
