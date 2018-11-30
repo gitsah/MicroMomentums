@@ -71,9 +71,13 @@ public class MainActivityTest
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("Avg % change")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(click()).perform(click());
+        onView(withText("Momentum")).perform(swipeLeft());
         onView(withText("Day % change")).perform(click()).perform(click());
-        Stock stock1 = new Stock("xx", "34", "23", "13", "4", "2018-11-29 16:00:00", "2");
-        Stock stock2 = new Stock("xx", "34", "25", "23", "3", "2018-11-29 16:00:00", "29");
+
+
+
+        Stock stock1 = new Stock("KO", "50", "23", "13", "4", "2018-11-29 16:00:00", "2");
+        Stock stock2 = new Stock("VXX", "34", "25", "23", "3", "2018-11-29 16:00:00", "29");
         stock1.calcualteRising();
         stock2.calcualteRising();
         stock1.compareTo(stock2);
