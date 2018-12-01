@@ -71,6 +71,7 @@ public class MainActivityTest
         onView(withText("Avg % change")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(swipeLeft());
+        onView(withText("Momentum")).perform(swipeLeft());
         onView(withText("Day % change")).perform(click()).perform(click());
 
 
