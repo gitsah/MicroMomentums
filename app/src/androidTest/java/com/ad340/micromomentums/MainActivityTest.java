@@ -31,11 +31,11 @@ public class MainActivityTest
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule(MainActivity.class);
 
-    @Test
-    public void homeActivityTest() {
-        //Espresso.onView(withId(R.id.hello_world)).check(matches(withText("Hello World!")));
-
-
+//    @Test
+//    public void homeActivityTest() {
+//        //Espresso.onView(withId(R.id.hello_world)).check(matches(withText("Hello World!")));
+//
+//
 //        SystemClock.sleep(1800);
 //        Stock stock1 = new Stock("xx", "34", "23", "13", "4");
 //        Stock stock2 = new Stock("xx", "34", "25", "23", "3");
@@ -46,13 +46,12 @@ public class MainActivityTest
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(2).perform(click());
-
-
-        //onData(withId(R.id.listView)).atPosition(0).perform(click());
-    }
+//
+//
+//        //onData(withId(R.id.listView)).atPosition(0).perform(click());
+//    }
         @Test
         public void onCreateClickTabs(){
-        Espresso.
 
         onView(withText("How It Works")).check(matches(withText("How It Works")));
         onView(withText("How It Works")).perform(click());
@@ -72,8 +71,8 @@ public class MainActivityTest
         onView(withText("Avg % change")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(swipeLeft());
+        onView(withText("Momentum")).perform(swipeLeft());
         onView(withText("Day % change")).perform(click()).perform(click());
-
 
 
         Stock stock1 = new Stock("KO", "50", "23", "13", "4", "2018-11-29 16:00:00", "2");
@@ -82,7 +81,6 @@ public class MainActivityTest
         stock2.calcualteRising();
         stock1.compareTo(stock2);
         stock2.compareTo(stock1);
-
 
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 //        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
