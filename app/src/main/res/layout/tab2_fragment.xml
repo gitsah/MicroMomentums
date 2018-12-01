@@ -86,12 +86,12 @@
 
                 <TextView
                     android:id="@+id/buy"
-                    android:layout_width="95dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:background="#0b0e0c"
                     android:padding="10dp"
                     android:text="Momentum"
-                    android:textAlignment="textEnd"
+                    android:textAlignment="textStart"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
                     android:id="@+id/lastUpdated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#DDDDDD"
+                    android:background="#e3e8e4"
                     android:padding="10dp"
                     android:text="lastUpdates"
                     android:textAlignment="textStart"

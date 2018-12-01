@@ -1,14 +1,48 @@
 <resources>
     <string name="app_name">Micro Momentums</string>
     <string name="hello_world">Hello World!</string>
-    <string name="about"> Momentum stocks are traditionally defined by their sustained and increasing movement in price, either up or down.
-        Momentum stock strategies, in turn, are those stock trading strategies that scan the universe of stocks for those
-        making the strongest gains (or losses) in the least amount of time. Momentum traders focus on acceleration in a stock’s price or in a company’s earnings or revenues.
-        These traders then take on a long or short position in the stock, in the hopes that the momentum will continue in the same direction. Micro momentum takes on the basic concepts
-        of momentum stock strategies, but applies it on a smaller scale. The micro momentum app focuses on the increase or decrease of stocks every five minutes. Here we provide you
-        with real time data for stock prices and what the trend is based off the last three five minute increments.
+    <string name="about">This app was developed and created by: \n
+\n
+Brad Nissen (Software Application Developer) \n
+        \n
+   Sahand Milaninia (Software Application Developer) \n
+        \n
+        Nathan Cobb (Software Application Developer) \n
+        <a href="http://www.linkedin.com/in/ncobb01">http://www.linkedin.com/in/ncobb01</a> \n
+        \n
+Jeremiah Smith (Software Application Developer) \n
+        <a href="https://www.linkedin.com/in/jeremiahjsmith/">https://www.linkedin.com/in/jeremiahjsmith/</a> \n
+        \n
+
+Development overseen by: \n
+Kyle McNutt – Professor – North Seattle College \n
+Ben Tunigold – Client
+
+
     </string>
-    <string name="how">We list five stocks that have been selected for live price tracking using a real time stock service. Their stock symbols are listed in the gray Symbol column. The next three columns track the price of the stock in five minute intervals, the first being its current price.
-    The next column shows the price five minutes ago, and the next displays the price ten minutes ago. The final column is where the magic really happens. If you see a green check mark next to the stock that means it has been increasing for all three time intervals and is showing a trend of micro momentum!
-   If you see the red x, no worries. This just means at least one of the three previous prices did not go up from its previous pointKeep an eye out as these numbers are updated constantly during market hours, you never know when a new surge will happen! </string>
+    <string name="how">What is Momentum trading? Momentum trading is a stock buying strategy where traders buy and sell stock based on its price trend.
+        (Up or down)  This momentum can be determined by multiple factors such as trading volume and rate of price changes.
+        By momentum trading, you are betting an asset price which is moving in a certain direction will continue to move that direction until the trend loses strength.
+For more information on Momentum trading, visit:\n
+        \n
+        <a href="https://www.investopedia.com/trading/introduction-to-momentum-trading/">https://www.investopedia.com/trading/introduction-to-momentum-trading/</a> \n
+         \n
+        <a href="https://www.fxcm.com/insights/what-is-momentum-trading/">https://www.fxcm.com/insights/what-is-momentum-trading/</a> \n
+        \n
+        Micro Momentum trading takes the ideas of momentum trading and applies it to a five minute interval.
+        If a particular stock is trending up (or down), each five minute interval will give the indication and through comparative analysis will show positive (or negative) momentum. \n
+        \n
+        This app does not guarantee any profits will be made and is not intended to dictate trends in market data.
+        The apps purpose is as an investing tool to provide better analysis for each traders own investing strategy. \n
+        \n
+        We list three-hundred stocks that have been selected for live price tracking using a real time stock service. \n
+        \n
+        The stock ticker symbol is listed to the left hand side of the screen. This column can be sorted by alphabetical order. \n
+        \n
+        The next columns list the price of the symbol in five minute increments starting at current price, and then work backwards to fifteen minutes past the current price. \n
+        \n
+        The percent change indicates the percent change the stock has had comparing the current price to the price fifteen minutes past. \n
+        \n
+        The momentum indicator shows if the stock has had a price increase three intervals in a row.
+ </string>
 </resources>
