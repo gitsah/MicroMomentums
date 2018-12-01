@@ -71,10 +71,10 @@
         <!--&lt;!&ndash;change visibility to "gone"&ndash;&gt;-->
         <ImageView
             android:id="@+id/momentum_true"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:padding="5dp"
             android:src="@mipmap/uparrow"
             android:visibility="gone" />
@@ -83,11 +83,10 @@
         <!--change visibility to "gone"-->
         <ImageView
             android:id="@+id/momentum_false"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="30dp"
-
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:padding="5dp"
             android:src="@mipmap/downarrow"
             android:visibility="gone" />
