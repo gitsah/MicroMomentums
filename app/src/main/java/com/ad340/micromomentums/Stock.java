@@ -14,19 +14,24 @@ public class Stock implements Comparable<Stock>{
     private String last5;
     private String last10;
     private String last15;
+    private String lastUp;
+    private String originalValue;
     private boolean isRising;
     private double percentChange;
+    private double dayPercentChange;
 
     public Stock() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Stock(String symbol, String value, String last5, String last10, String last15) {
+    public Stock(String symbol, String value, String last5, String last10, String last15, String lastUp, String originalValue) {
         this.symbol = symbol;
         this.value = value;
         this.last5 = last5;
         this.last10 = last10;
         this.last15 = last15;
+        this.lastUp = lastUp;
+        this.originalValue = originalValue;
     }
 
     public void calcualteRising(){
@@ -39,6 +44,7 @@ public class Stock implements Comparable<Stock>{
         double last5Val = Double.valueOf(last5);
         double last10Val = Double.valueOf(last10);
         double last15Val = Double.valueOf(last15);
+        double dayVal = Double.valueOf(originalValue);
 
         //Difference from last 10 to last 5
         double change10to15 = ((last10Val - last15Val) / last15Val) * 100;
@@ -49,9 +55,14 @@ public class Stock implements Comparable<Stock>{
 
         double avgPercentChange = (change5to10 + changeCurrentTo5 + change10to15) / 3;
 
+        double dailyPercentChange = (currentVal - dayVal)/ dayVal* 100;
+
         DecimalFormat df = new DecimalFormat("###.####");
 
         this.percentChange = Double.valueOf(df.format(avgPercentChange));
+
+        this.dayPercentChange = Double.valueOf(df.format(dailyPercentChange));
+
     }
 
     @Override
@@ -116,6 +127,22 @@ public class Stock implements Comparable<Stock>{
         this.last15 = last15;
     }
 
+    public String getLastUp() {
+        return lastUp;
+    }
+
+    public void setLastUp(String lastUp) {
+        this.lastUp = lastUp;
+    }
+
+    public String getOriginalValue() {
+        return originalValue;
+    }
+
+    public void setOriginalValue(String originalValue) {
+        this.originalValue = originalValue;
+    }
+
     public boolean getIsRising(){
         return isRising;
     }
@@ -123,5 +150,8 @@ public class Stock implements Comparable<Stock>{
     public double getPercentChange(){
         return percentChange;
     }
-}
 
+    public double getDayPercentChange(){
+        return dayPercentChange;
+    }
+}
