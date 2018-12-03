@@ -53,7 +53,7 @@ public class StockListView extends ArrayAdapter<Stock> {
         viewHolder.tvw4.setText(stocks.get(position).getLast10());
 
         TextView updated = context.findViewById(R.id.lastUpdated);
-        updated.setText(stocks.get(position).getLastUp());
+        updated.setText("Last Updated: " + stocks.get(position).getLastUp());
 
         //viewHolder.tvw7.setText(stocks.get(position).getLast10());
 

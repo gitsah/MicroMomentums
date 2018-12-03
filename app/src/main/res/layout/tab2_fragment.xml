@@ -7,6 +7,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+        <TextView
+            android:id="@+id/lastUpdated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e3e8e4"
+            android:padding="10dp"
+            android:text="lastUpdates"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            />
+
         <HorizontalScrollView android:layout_width="wrap_content"
             android:layout_height="match_parent"
             xmlns:android="http://schemas.android.com/apk/res/android">
@@ -115,29 +127,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lastUpdateLayout"
-                tools:context=".MainActivity">
-
-
-                <TextView
-                    android:id="@+id/lastUpdated"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#e3e8e4"
-                    android:padding="10dp"
-                    android:text="lastUpdates"
-                    android:textAlignment="textStart"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
+            <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                <!--xmlns:tools="http://schemas.android.com/tools"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/lastUpdateLayout"-->
+                <!--tools:context=".MainActivity">-->
 
 
 
-            </LinearLayout>
+
+
+
+            <!--</LinearLayout>-->
 
         </LinearLayout>
             <!--END OF CHILD LAYOUT-->
