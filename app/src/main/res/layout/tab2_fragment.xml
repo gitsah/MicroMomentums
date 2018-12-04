@@ -11,19 +11,11 @@
             android:id="@+id/lastUpdated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:background="#e3e8e4"
-            android:padding="10dp"
-            android:text="lastUpdates"
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-=======
             android:background="#b9c6ba"
             android:padding="10dp"
             android:text="lastUpdates"
             android:textAlignment="textStart"
             android:textColor="#0b0e0c"
->>>>>>> 96e2b4a92e98b09771b3a555a98dbe80c7ab8ffc
             android:textStyle="bold"
             />
 
@@ -144,26 +136,10 @@
                 <!--tools:context=".MainActivity">-->
 
 
-<<<<<<< HEAD
-                <!--<TextView-->
-                    <!--android:id="@+id/lastUpdated"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="#e3e8e4"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:text="lastUpdates"-->
-                    <!--android:textAlignment="textStart"-->
-                    <!--android:textColor="#000000"-->
-                    <!--android:textStyle="bold" />-->
-
-
-
-=======
 
 
 
 
->>>>>>> 96e2b4a92e98b09771b3a555a98dbe80c7ab8ffc
             <!--</LinearLayout>-->
 
         </LinearLayout>
