@@ -15,7 +15,7 @@ To run the application locally you will need the ` google-services.json` file wh
 
 
 
-  | <img width="170" alt="home" src="https://user-images.githubusercontent.com/25112069/49419127-66d1f600-f73a-11e8-8caa-3b73be3ff605.png"> | <img width="170" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419140-781b0280-f73a-11e8-8e31-22bd653306ae.png"> | <img width="170" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419145-7d784d00-f73a-11e8-9d82-c0f19e909ccb.png"> |<img width="170" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419149-80733d80-f73a-11e8-84e2-8b420e7ec6cc.png">|
+  | <img width="200" alt="home" src="https://user-images.githubusercontent.com/25112069/49419127-66d1f600-f73a-11e8-8caa-3b73be3ff605.png"> | <img width="200" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419140-781b0280-f73a-11e8-8e31-22bd653306ae.png"> | <img width="200" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419145-7d784d00-f73a-11e8-9d82-c0f19e909ccb.png"> |<img width="200" alt="stock1" src="https://user-images.githubusercontent.com/25112069/49419149-80733d80-f73a-11e8-84e2-8b420e7ec6cc.png">|
 |---------|---------|---------|---------|
 
 
