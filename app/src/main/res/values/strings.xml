@@ -1,27 +1,29 @@
 <resources>
     <string name="app_name">Micro Momentums</string>
     <string name="hello_world">Hello World!</string>
-    <string name="about">This app was developed and created by: \n
-\n
-Brad Nissen (Software Application Developer) \n
+    <string name="about"><b>Micro Momentum was developed and created by:</b> \n
+        \n
+        <b>Brad Nissen</b> \n
 
-        <a href="https://www.linkedin.com/in/bradnissen/">https://www.linkedin.com/in/bradnissen/</a> \n
+        <a href="https://www.linkedin.com/in/bradnissen/"><i>https://www.linkedin.com/in/bradnissen/</i></a> \n
         \n
-   Sahand Milaninia (Software Application Developer) \n
-        <a href="http://www.linkedin.com/in/sahandmilaninia">http://www.linkedin.com/in/sahandmilaninia</a>
-        \n
-
-        \n
-        Nathan Cobb (Software Application Developer) \n
-        <a href="http://www.linkedin.com/in/ncobb01">http://www.linkedin.com/in/ncobb01</a> \n
-        \n
-Jeremiah Smith (Software Application Developer) \n
-        <a href="https://www.linkedin.com/in/jeremiahjsmith/">https://www.linkedin.com/in/jeremiahjsmith/</a> \n
+        <b>Sahand Milaninia</b> \n
+        <a href="http://www.linkedin.com/in/sahandmilaninia"><i>http://www.linkedin.com/in/sahandmilaninia</i></a>
         \n
 
-Development overseen by: \n
-Kyle McNutt – Professor – North Seattle College \n
-Ben Tunigold – Client
+        \n
+       <b>Nathan Cobb</b> \n
+        <a href="http://www.linkedin.com/in/ncobb01"><i>http://www.linkedin.com/in/ncobb01</i></a> \n
+        \n
+       <b>Jeremiah Smith</b> \n
+        <a href="https://www.linkedin.com/in/jeremiahjsmith/"><i>https://www.linkedin.com/in/jeremiahjsmith/</i></a> \n
+        \n
+
+        <b><ul>Development overseen by:</ul></b> \n
+        \n
+<b>Kyle McNutt</b> – Professor – North Seattle College \n
+        \n
+<b>Ben Tunigold</b> – Client
 
 
     </string>
