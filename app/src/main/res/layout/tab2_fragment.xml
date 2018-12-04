@@ -11,11 +11,11 @@
             android:id="@+id/lastUpdated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#e3e8e4"
+            android:background="#b9c6ba"
             android:padding="10dp"
             android:text="lastUpdates"
             android:textAlignment="textStart"
-            android:textColor="#000000"
+            android:textColor="#0b0e0c"
             android:textStyle="bold"
             />
 
@@ -136,16 +136,7 @@
                 <!--tools:context=".MainActivity">-->
 
 
-                <!--<TextView-->
-                    <!--android:id="@+id/lastUpdated"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="#e3e8e4"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:text="lastUpdates"-->
-                    <!--android:textAlignment="textStart"-->
-                    <!--android:textColor="#000000"-->
-                    <!--android:textStyle="bold" />-->
+
 
 
 
