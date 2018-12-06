@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:text="About Our App"
+        android:text="About Us"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/open_sans"
         android:textSize="20sp"
@@ -16,21 +16,22 @@
 
 
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_marginTop="40dp"
         android:layout_height="match_parent"
         android:padding="10dp"
+        android:autoLink="web"
+        android:linksClickable="true"
         android:fontFamily="@font/opensanssemibold"
         android:text="@string/about"/>
 
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_marginTop="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="250dp"
+        android:alpha="0.1"
         android:src="@mipmap/logo" />
 
 </RelativeLayout>

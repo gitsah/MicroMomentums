@@ -18,6 +18,7 @@ public class Stock implements Comparable<Stock>{
     private String originalValue;
     private boolean isRising;
     private double percentChange;
+    private double dayPercentChange;
 
     public Stock() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -43,6 +44,7 @@ public class Stock implements Comparable<Stock>{
         double last5Val = Double.valueOf(last5);
         double last10Val = Double.valueOf(last10);
         double last15Val = Double.valueOf(last15);
+        double dayVal = Double.valueOf(originalValue);
 
         //Difference from last 10 to last 5
         double change10to15 = ((last10Val - last15Val) / last15Val) * 100;
@@ -53,9 +55,14 @@ public class Stock implements Comparable<Stock>{
 
         double avgPercentChange = (change5to10 + changeCurrentTo5 + change10to15) / 3;
 
+        double dailyPercentChange = (currentVal - dayVal)/ dayVal* 100;
+
         DecimalFormat df = new DecimalFormat("###.####");
 
         this.percentChange = Double.valueOf(df.format(avgPercentChange));
+
+        this.dayPercentChange = Double.valueOf(df.format(dailyPercentChange));
+
     }
 
     @Override
@@ -143,5 +150,8 @@ public class Stock implements Comparable<Stock>{
     public double getPercentChange(){
         return percentChange;
     }
-}
 
+    public double getDayPercentChange(){
+        return dayPercentChange;
+    }
+}

@@ -2,7 +2,7 @@
 Micro Momemtum Trading is a cloud-enabled, mobile-ready (ETA-TBD), stock trading android application which was built to specific requirements for the client during the mobile developement practicum course(AD 430) at North Seattle College. 
 
 
-### Requirments
+### Requirements
 To run the application locally you will need the ` google-services.json` file which must be put at the ` /app/` level of the project build.
 
 

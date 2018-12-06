@@ -26,31 +26,31 @@
 
         <TextView
             android:id="@+id/value"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="value"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="#000000"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/last5"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="last5"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="#000000"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/last10"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="last10"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="#000000"
             android:textStyle="bold" />
 
@@ -58,21 +58,23 @@
             android:id="@+id/percentChange"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:shadowColor="@color/black"
             android:shadowDx="6"
             android:shadowDy="6"
             android:text="% change"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
         <!--&lt;!&ndash;change visibility to "gone"&ndash;&gt;-->
         <ImageView
             android:id="@+id/momentum_true"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:padding="5dp"
             android:src="@mipmap/uparrow"
             android:visibility="gone" />
@@ -81,21 +83,35 @@
         <!--change visibility to "gone"-->
         <ImageView
             android:id="@+id/momentum_false"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:padding="5dp"
             android:src="@mipmap/downarrow"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/momentum"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:id="@+id/momentum"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text=""-->
+            <!--android:textAlignment="textEnd"-->
+            <!--android:textStyle="bold" />-->
 
+        <TextView
+            android:id="@+id/DailyPercentChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="6"
+            android:shadowDy="6"
+            android:text="% change"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

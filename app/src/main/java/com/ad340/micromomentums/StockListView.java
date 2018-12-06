@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class StockListView extends ArrayAdapter<Stock> {
@@ -18,8 +21,10 @@ public class StockListView extends ArrayAdapter<Stock> {
     private ArrayList<Stock> stocks;
     private Activity context;
 
+
     public StockListView(Activity context, ArrayList<Stock> stocks) {
         super(context, R.layout.listview_layout, stocks);
+
 
         this.stocks = stocks;
         this.context = context;
@@ -47,6 +52,12 @@ public class StockListView extends ArrayAdapter<Stock> {
         viewHolder.tvw3.setText(stocks.get(position).getLast5());
         viewHolder.tvw4.setText(stocks.get(position).getLast10());
 
+        TextView updated = context.findViewById(R.id.lastUpdated);
+        updated.setText("Last Updated: " + stocks.get(position).getLastUp());
+
+        //viewHolder.tvw7.setText(stocks.get(position).getLast10());
+
+
         boolean isRising = stocks.get(position).getIsRising();
 
         double percentChange = stocks.get(position).getPercentChange();
@@ -68,6 +79,19 @@ public class StockListView extends ArrayAdapter<Stock> {
             viewHolder.iv1.setVisibility(convertView.GONE);
             viewHolder.iv2.setVisibility(convertView.VISIBLE);
         }
+
+        double dayPercentChange = stocks.get(position).getDayPercentChange();
+        viewHolder.tvw6.setText(String.valueOf(dayPercentChange));
+
+        if (dayPercentChange < 0) {
+            viewHolder.tvw6.setBackgroundColor(Color.parseColor("#990000"));
+            viewHolder.tvw6.setShadowLayer(1,1,1, Color.parseColor("#000000"));
+        } else if (dayPercentChange > 0) {
+            viewHolder.tvw6.setBackgroundColor(Color.parseColor("#6E8771"));
+            viewHolder.tvw6.setShadowLayer(1,1,1, Color.parseColor("#000000"));
+        }
+
+
         return r;
     }
 
@@ -77,9 +101,10 @@ public class StockListView extends ArrayAdapter<Stock> {
         TextView tvw3;
         TextView tvw4;
         TextView tvw5;
+        TextView tvw6;
         ImageView iv1;
         ImageView iv2;
-        TextView tvX;
+        //TextView tvX;
 
         ViewHolder(View v){
             tvw1 = (TextView) v.findViewById(R.id.symbol);
@@ -87,9 +112,10 @@ public class StockListView extends ArrayAdapter<Stock> {
             tvw3 = (TextView) v.findViewById(R.id.last5);
             tvw4 = (TextView) v.findViewById(R.id.last10);
             tvw5 = (TextView) v.findViewById(R.id.percentChange);
+            tvw6 = (TextView) v.findViewById(R.id.DailyPercentChange);
             iv1  = (ImageView)v.findViewById(R.id.momentum_true);
             iv2 = (ImageView) v.findViewById(R.id.momentum_false);
-            tvX = (TextView) v.findViewById(R.id.momentum);
+            //tvX = (TextView) v.findViewById(R.id.momentum);
         }
     }
 
@@ -97,6 +123,7 @@ public class StockListView extends ArrayAdapter<Stock> {
         this.stocks = stocks;
         notifyDataSetChanged();
     }
+    
 
 //    /**
 //     * Take a percent change between each interval of 5 minutes and average them.
