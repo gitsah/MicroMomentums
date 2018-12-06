@@ -2,6 +2,7 @@ package com.ad340.micromomentums;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,10 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class StockListView extends ArrayAdapter<Stock> {
@@ -35,7 +34,7 @@ public class StockListView extends ArrayAdapter<Stock> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View r = convertView;
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if(r == null){
             LayoutInflater layoutInflater = context.getLayoutInflater();
             r = layoutInflater.inflate(R.layout.listview_layout,null, true);
@@ -46,8 +45,9 @@ public class StockListView extends ArrayAdapter<Stock> {
         else {
             viewHolder = (ViewHolder) r.getTag();
         }
+        String cSymbol = stocks.get(position).getSymbol();
 
-        viewHolder.tvw1.setText(stocks.get(position).getSymbol());
+        viewHolder.tvw1.setText(cSymbol);
         viewHolder.tvw2.setText(stocks.get(position).getValue());
         viewHolder.tvw3.setText(stocks.get(position).getLast5());
         viewHolder.tvw4.setText(stocks.get(position).getLast10());
@@ -55,8 +55,17 @@ public class StockListView extends ArrayAdapter<Stock> {
         TextView updated = context.findViewById(R.id.lastUpdated);
         updated.setText("Last Updated: " + stocks.get(position).getLastUp());
 
-        //viewHolder.tvw7.setText(stocks.get(position).getLast10());
+        r.setOnClickListener(v -> {
+            Toast toast = Toast.makeText(getContext(),
+                    cSymbol + " last updated: " + stocks.get(position).getLastUp() + " EST",
+                    Toast.LENGTH_SHORT);
 
+            // for rounded edges
+            //toast.getView().getBackground().setColorFilter(Color.parseColor("#CCCCCC"), PorterDuff.Mode.DARKEN);
+            // for block edges
+            toast.getView().setBackgroundColor(Color.parseColor("#CCCCCC"));
+            toast.show();
+        });
 
         boolean isRising = stocks.get(position).getIsRising();
 
@@ -72,12 +81,12 @@ public class StockListView extends ArrayAdapter<Stock> {
         }
 
         if (isRising) {
-            viewHolder.iv2.setVisibility(convertView.GONE);
-            viewHolder.iv1.setVisibility(convertView.VISIBLE);
+            viewHolder.iv2.setVisibility(View.GONE);
+            viewHolder.iv1.setVisibility(View.VISIBLE);
         }
         else {
-            viewHolder.iv1.setVisibility(convertView.GONE);
-            viewHolder.iv2.setVisibility(convertView.VISIBLE);
+            viewHolder.iv1.setVisibility(View.GONE);
+            viewHolder.iv2.setVisibility(View.VISIBLE);
         }
 
         double dayPercentChange = stocks.get(position).getDayPercentChange();
@@ -104,7 +113,6 @@ public class StockListView extends ArrayAdapter<Stock> {
         TextView tvw6;
         ImageView iv1;
         ImageView iv2;
-        //TextView tvX;
 
         ViewHolder(View v){
             tvw1 = (TextView) v.findViewById(R.id.symbol);
@@ -113,9 +121,8 @@ public class StockListView extends ArrayAdapter<Stock> {
             tvw4 = (TextView) v.findViewById(R.id.last10);
             tvw5 = (TextView) v.findViewById(R.id.percentChange);
             tvw6 = (TextView) v.findViewById(R.id.DailyPercentChange);
-            iv1  = (ImageView)v.findViewById(R.id.momentum_true);
+            iv1 = (ImageView)v.findViewById(R.id.momentum_true);
             iv2 = (ImageView) v.findViewById(R.id.momentum_false);
-            //tvX = (TextView) v.findViewById(R.id.momentum);
         }
     }
 
@@ -123,58 +130,4 @@ public class StockListView extends ArrayAdapter<Stock> {
         this.stocks = stocks;
         notifyDataSetChanged();
     }
-    
-
-//    /**
-//     * Take a percent change between each interval of 5 minutes and average them.
-//     * So the final percent displayed is the average change for each interval.
-//     * @param current
-//     * @param last5
-//     * @param last10
-//     * @return
-//     */
-//    private double percentChange(String current, String last5, String last10){
-//        double currentVal = Double.valueOf(current);
-//        double last5Val = Double.valueOf(last5);
-//        double last10Val = Double.valueOf(last10);
-//
-//        // Differnce from last 10 to last 5
-//        double change5to10 = ((last5Val - last10Val) / last10Val) * 100;
-//
-//        double changeCurrentTo5 = ((currentVal - last5Val) / last5Val) * 100;
-//
-//        double avgPercentChange = (change5to10 + changeCurrentTo5) / 2;
-//
-//        DecimalFormat df = new DecimalFormat("###.####");
-//
-//        return Double.valueOf(df.format(avgPercentChange));
-//
-//
-//    }
-//    /**
-//     * Take a percent change between each interval of 5 minutes and average them.
-//     * So the final percent displayed is the average change for each interval.
-//     * @param current
-//     * @param last5
-//     * @param last10
-//     * @return
-//     */
-//    private double percentChange(String current, String last5, String last10){
-//        double currentVal = Double.valueOf(current);
-//        double last5Val = Double.valueOf(last5);
-//        double last10Val = Double.valueOf(last10);
-//
-//        // Differnce from last 10 to last 5
-//        double change5to10 = ((last5Val - last10Val) / last10Val) * 100;
-//
-//        double changeCurrentTo5 = ((currentVal - last5Val) / last5Val) * 100;
-//
-//        double avgPercentChange = (change5to10 + changeCurrentTo5) / 2;
-//
-//        DecimalFormat df = new DecimalFormat("###.####");
-//
-//        return Double.valueOf(df.format(avgPercentChange));
-//
-//
-//    }
 }
