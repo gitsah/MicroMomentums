@@ -46,7 +46,6 @@ public class Tab2Fragment extends Fragment {
                     stocks.sort(Collections.reverseOrder());
 
                     mStocks = stocks;
-//                  String stockSymbols[] = stocks.stream().map(Stock::getSymbol).toArray(String[]::new);
                     slv = new StockListView(getActivity(), stocks);
                     list.setAdapter(slv);
                 }

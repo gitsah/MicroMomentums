@@ -1,7 +1,6 @@
 package com.ad340.micromomentums;
 
 import android.os.SystemClock;
-import android.support.test.espresso.Espresso;
 import android.support.test.filters.LargeTest;
 
 
@@ -11,17 +10,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.hasLinks;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-//import static org.hamcrest.CoreMatchers.anything;
-import static org.junit.Assert.*;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -62,6 +55,7 @@ public class MainActivityTest
         SystemClock.sleep(1800);
 
         onView(withText("Symbol")).perform(click()).perform(click());
+        onView(withText("AAL")).perform(click()).perform(click());
         onView(withText("Current")).perform(click()).perform(click());
         onView(withText("Last 5")).perform(click()).perform(click());
         onView(withText("last 10")).perform(click()).perform(click());
@@ -69,6 +63,8 @@ public class MainActivityTest
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("last 10")).perform(swipeLeft());
         onView(withText("Avg % change")).perform(click()).perform(click());
+        onView(withText("Avg % change")).perform(swipeLeft());
+        onView(withText("Avg % change")).perform(swipeLeft());
         onView(withText("Momentum")).perform(click()).perform(click());
         onView(withText("Momentum")).perform(swipeLeft());
         onView(withText("Momentum")).perform(swipeLeft());
@@ -82,11 +78,6 @@ public class MainActivityTest
         stock1.compareTo(stock2);
         stock2.compareTo(stock1);
 
-//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
-//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(2).perform(click());
-
-        //onView(withId(R.id.container)).perform(swipeLeft());
         onView(withText("About")).perform(swipeLeft());
 
         onView(withText("About")).check(matches(withText("About")));
