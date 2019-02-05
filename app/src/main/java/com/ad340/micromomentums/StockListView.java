@@ -2,6 +2,7 @@ package com.ad340.micromomentums;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -56,8 +57,13 @@ public class StockListView extends ArrayAdapter<Stock> {
 
         r.setOnClickListener(v -> {
             Toast toast = Toast.makeText(getContext(),
-                    cSymbol + " last updated: " + stocks.get(position).getLastUp(),
+                    cSymbol + " last updated: " + stocks.get(position).getLastUp() + " EST",
                     Toast.LENGTH_SHORT);
+
+            // for rounded edges
+            //toast.getView().getBackground().setColorFilter(Color.parseColor("#CCCCCC"), PorterDuff.Mode.DARKEN);
+            // for block edges
+            toast.getView().setBackgroundColor(Color.parseColor("#CCCCCC"));
             toast.show();
         });
 
