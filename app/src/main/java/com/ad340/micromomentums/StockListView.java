@@ -2,29 +2,43 @@ package com.ad340.micromomentums;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import io.objectbox.Box;
+import io.objectbox.query.Query;
 
 public class StockListView extends ArrayAdapter<Stock> {
 
     private ArrayList<Stock> stocks;
     private Activity context;
+    private Box<TrackedStock> stockBox;
+    private Query<TrackedStock> trackedQuery;
 
 
     public StockListView(Activity context, ArrayList<Stock> stocks) {
         super(context, R.layout.listview_layout, stocks);
 
 
+        this.stockBox = ObjectBox.get().boxFor(TrackedStock.class);
+        this.trackedQuery = stockBox.query().equal(TrackedStock_.id, 0).build();
         this.stocks = stocks;
         this.context = context;
     }
@@ -52,19 +66,80 @@ public class StockListView extends ArrayAdapter<Stock> {
         viewHolder.tvw3.setText(stocks.get(position).getLast5());
         viewHolder.tvw4.setText(stocks.get(position).getLast10());
 
-        TextView updated = context.findViewById(R.id.lastUpdated);
-        updated.setText("Last Updated: " + stocks.get(position).getLastUp());
-
         r.setOnClickListener(v -> {
-            Toast toast = Toast.makeText(getContext(),
-                    cSymbol + " last updated: " + stocks.get(position).getLastUp() + " EST",
-                    Toast.LENGTH_SHORT);
+            Stock stock = stocks.get(position);
 
-            // for rounded edges
-            //toast.getView().getBackground().setColorFilter(Color.parseColor("#CCCCCC"), PorterDuff.Mode.DARKEN);
-            // for block edges
-            toast.getView().setBackgroundColor(Color.parseColor("#CCCCCC"));
-            toast.show();
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            PopupWindow popupWindow = new PopupWindow(layoutInflater.inflate(R.layout.stock_popup, null), ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            popupWindow.showAtLocation(context.findViewById(R.id.tab2_fragment), Gravity.NO_GRAVITY, 500, 700);
+
+            TextView stockSymbol = popupWindow.getContentView().findViewById(R.id.popup_stock_symbol);
+            TextView currentValue = popupWindow.getContentView().findViewById(R.id.popup_value);
+            TextView last5 = popupWindow.getContentView().findViewById(R.id.popup_last5);
+            TextView last10 = popupWindow.getContentView().findViewById(R.id.popup_last10);
+            TextView lastUpdate = popupWindow.getContentView().findViewById(R.id.popup_last_updated);
+            TextView noGraph = popupWindow.getContentView().findViewById(R.id.popup_no_graph);
+            GraphView graph = popupWindow.getContentView().findViewById(R.id.daily_graph);
+            Switch tracked = popupWindow.getContentView().findViewById(R.id.popup_track_switch);
+
+            List<TrackedStock> matches = trackedQuery.setParameter(TrackedStock_.id, stock.id).find();
+            if(matches.size() > 0)
+                stock.setTracked(true);
+            else
+                stock.setTracked(false);
+
+            if(stock.getDayHistory() != null) {
+                //create the graph from the list of values
+                LinkedList<DataPoint> dataPoints = new LinkedList<>();
+                int x = 0;
+                for (String value : stock.getDayHistory()) {
+                    Double y = Double.parseDouble(value);
+                    dataPoints.push(new DataPoint(x, y));
+                    x++;
+                }
+                LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints.toArray(new DataPoint[dataPoints.size()]));
+                graph.addSeries(series);
+            }
+            else{
+                graph.setVisibility(View.GONE);
+                noGraph.setVisibility(View.VISIBLE);
+            }
+            stockSymbol.setText(stock.getSymbol());
+            currentValue.setText(stock.getValue());
+            last5.setText(stock.getLast5());
+            last10.setText(stock.getLast10());
+            String lastUpdated = "Last updated: " + stock.getLastUp();
+            lastUpdate.setText(lastUpdated);
+            tracked.setChecked(stock.isTracked());
+
+            tracked.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if(isChecked){
+                    stock.setTracked(true);
+                    stockBox.put(new TrackedStock(stock.id));
+                }
+                else{
+                    stock.setTracked(false);
+                    stockBox.remove(stock.id);
+                }
+            });
+
+//            FragmentManager fragmentManager = context.getFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//            StockPopupFragment fragment = new StockPopupFragment();
+//            fragment.setStock(stocks.get(position));
+//            fragmentTransaction.replace(R.id.container, fragment);
+//            fragmentTransaction.commit();
+
+//            Toast toast = Toast.makeText(getContext(),
+//                    cSymbol + " last updated: " + stocks.get(position).getLastUp() + " EST",
+//                    Toast.LENGTH_SHORT);
+//
+//            // for rounded edges
+//            //toast.getView().getBackground().setColorFilter(Color.parseColor("#CCCCCC"), PorterDuff.Mode.DARKEN);
+//            // for block edges
+//            toast.getView().setBackgroundColor(Color.parseColor("#CCCCCC"));
+//            toast.show();
         });
 
         boolean isRising = stocks.get(position).getIsRising();

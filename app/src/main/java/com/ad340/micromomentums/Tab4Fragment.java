@@ -21,9 +21,9 @@ import java.util.List;
 import io.objectbox.Box;
 import io.objectbox.query.Query;
 
-public class Tab2Fragment extends Fragment {
+public class Tab4Fragment extends Fragment {
 
-    private static final String TAG = "Tab2Fragment";
+    private static final String TAG = "Tab4Fragment";
     private ListView list;
     private StockListView slv;
     private ArrayList<Stock> mStocks;
@@ -58,12 +58,17 @@ public class Tab2Fragment extends Fragment {
                     }
                     //Sort stocks by amount of change descending
                     stocks.sort(Collections.reverseOrder());
+                    ArrayList<Stock> trackedStocks = new ArrayList<>();
+                    for(Stock stock : stocks)
+                        if(stock.isTracked())
+                            trackedStocks.add(stock);
 
-                    mStocks = stocks;
-                    Log.d("meme", "mstock in 2 populated");
-                    slv = new StockListView(getActivity(), stocks);
+                    mStocks = trackedStocks;
+                    Log.d("meme", "mstock in 4 populated");
+                    slv = new StockListView(getActivity(), trackedStocks);
                     list.setAdapter(slv);
                 }
+
         );
 
         ArrayAdapter<Stock> listViewAdapter = new ArrayAdapter<>(

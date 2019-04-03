@@ -17,6 +17,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ObjectBox.init(this);
         setContentView(R.layout.activity_main);
 
         //Tab Layout
@@ -34,6 +35,7 @@ public class MainActivity extends FragmentActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "How It Works");
         adapter.addFragment(new Tab2Fragment(), "Stocks");
+        adapter.addFragment(new Tab4Fragment(), "tracked");
         adapter.addFragment(new Tab3Fragment(), "About");
 
         viewPager.setAdapter(adapter);

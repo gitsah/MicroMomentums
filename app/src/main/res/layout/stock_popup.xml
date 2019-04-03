@@ -110,6 +110,20 @@
         android:layout_height="8dp"
         android:layout_weight="1" />
 
+    <Switch
+        android:id="@+id/popup_track_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:splitTrack="false"
+        android:text="@string/track" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_weight="1" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,4 +139,12 @@
         android:id="@+id/daily_graph"
         android:layout_width="match_parent"
         android:layout_height="240dip" />
+
+    <TextView
+        android:id="@+id/popup_no_graph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_graph_available_for_this_stock"
+        android:textAlignment="center"
+        android:visibility="gone" />
 </LinearLayout>

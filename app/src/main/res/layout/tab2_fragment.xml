@@ -1,27 +1,15 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab2_fragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/lastUpdated"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#b9c6ba"
-            android:padding="10dp"
-            android:text="lastUpdates"
-            android:textAlignment="textStart"
-            android:textColor="#0b0e0c"
-            android:textStyle="bold"
-            />
-
-        <HorizontalScrollView android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -80,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:background="#0b0e0c"
                     android:padding="10dp"
-                    android:text="last 10"
+                    android:text="Last 10"
                     android:textAlignment="textEnd"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
@@ -128,24 +116,20 @@
                 android:layout_height="match_parent" />
 
             <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-                <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-                <!--xmlns:tools="http://schemas.android.com/tools"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/lastUpdateLayout"-->
-                <!--tools:context=".MainActivity">-->
-
-
-
-
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--xmlns:tools="http://schemas.android.com/tools"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/lastUpdateLayout"-->
+            <!--tools:context=".MainActivity">-->
 
 
             <!--</LinearLayout>-->
 
         </LinearLayout>
-            <!--END OF CHILD LAYOUT-->
+        <!--END OF CHILD LAYOUT-->
 
-        </HorizontalScrollView>
+    </HorizontalScrollView>
 
 
 </LinearLayout>

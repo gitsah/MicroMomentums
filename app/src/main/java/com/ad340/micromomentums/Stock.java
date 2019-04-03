@@ -5,9 +5,12 @@ import android.support.annotation.NonNull;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 @IgnoreExtraProperties
 public class Stock implements Comparable<Stock>{
+
+    public Long id;
 
     private String symbol;
     private String value;
@@ -16,7 +19,9 @@ public class Stock implements Comparable<Stock>{
     private String last15;
     private String lastUp;
     private String originalValue;
+    private List<String> dayHistory;
     private boolean isRising;
+    private boolean isTracked;
     private double percentChange;
     private double dayPercentChange;
 
@@ -62,6 +67,14 @@ public class Stock implements Comparable<Stock>{
         this.percentChange = Double.valueOf(df.format(avgPercentChange));
 
         this.dayPercentChange = Double.valueOf(df.format(dailyPercentChange));
+
+
+        StringBuilder id = new StringBuilder("");
+
+        for(int i : symbol.toCharArray()){
+            id.append(i);
+        }
+        this.id = Long.parseLong(id.toString());
 
     }
 
@@ -143,8 +156,28 @@ public class Stock implements Comparable<Stock>{
         this.originalValue = originalValue;
     }
 
+    public List<String> getDayHistory() {
+        return dayHistory;
+    }
+
+    public void setDayHistory(List<String> dayHistory) {
+        this.dayHistory = dayHistory;
+    }
+
+    public boolean isRising() {
+        return isRising;
+    }
+
     public boolean getIsRising(){
         return isRising;
+    }
+
+    public boolean isTracked() {
+        return isTracked;
+    }
+
+    public void setTracked(boolean tracked) {
+        isTracked = tracked;
     }
 
     public double getPercentChange(){

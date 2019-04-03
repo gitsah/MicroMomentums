@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-database:16.0.3'
     implementation 'de.codecrafters.tableview:tableview:2.8.0'
+    implementation 'com.jjoe64:graphview:4.2.2'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
@@ -46,3 +47,4 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.objectbox'

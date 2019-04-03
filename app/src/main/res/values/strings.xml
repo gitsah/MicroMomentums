@@ -3,14 +3,15 @@
     <string name="hello_world">Hello World!</string>
     <string name="about"><b>Micro Momentum was developed and created by:</b> \n
         \n
-        <b>Brad Nissen</b> \n
-
-        <a href="https://www.linkedin.com/in/bradnissen/"><i>https://www.linkedin.com/in/bradnissen/</i></a> \n
-        \n
         <b>Sahand Milaninia</b> \n
         <a href="http://www.linkedin.com/in/sahandmilaninia"><i>http://www.linkedin.com/in/sahandmilaninia</i></a>
         \n
+        \n
 
+        <b>Previous members no longer contributing:</b> \n
+        \n
+        <b>Brad Nissen</b> \n
+        <a href="https://www.linkedin.com/in/bradnissen/"><i>https://www.linkedin.com/in/bradnissen/</i></a> \n
         \n
        <b>Nathan Cobb</b> \n
         <a href="http://www.linkedin.com/in/ncobb01"><i>http://www.linkedin.com/in/ncobb01</i></a> \n
@@ -20,8 +21,6 @@
         \n
 
         <b><ul>Development overseen by:</ul></b> \n
-        \n
-<b>Kyle McNutt</b> – Professor – North Seattle College \n
         \n
 <b>Ben Tunigold</b> – Client
 
@@ -52,4 +51,11 @@ For more information on Momentum trading, visit:\n
         \n
         The momentum indicator shows if the stock has had a price increase three intervals in a row.
  </string>
+    <string name="fillerText">filler</string>
+    <string name="current">Current</string>
+    <string name="last_5">Last 5</string>
+    <string name="last_10">Last 10</string>
+    <string name="daily_history_graph">Daily History Graph</string>
+    <string name="no_graph_available_for_this_stock">No graph available for this stock</string>
+    <string name="track">Track</string>
 </resources>
