@@ -43,6 +43,11 @@ public class StockListView extends ArrayAdapter<Stock> {
         this.context = context;
     }
 
+    @Override
+    public int getCount() {
+        return stocks.size();
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -91,11 +96,11 @@ public class StockListView extends ArrayAdapter<Stock> {
             if(stock.getDayHistory() != null) {
                 //create the graph from the list of values
                 LinkedList<DataPoint> dataPoints = new LinkedList<>();
-                int x = 0;
+                int x = stock.getDayHistory().size() - 1;
                 for (String value : stock.getDayHistory()) {
                     Double y = Double.parseDouble(value);
                     dataPoints.push(new DataPoint(x, y));
-                    x++;
+                    x--;
                 }
                 LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints.toArray(new DataPoint[dataPoints.size()]));
                 graph.addSeries(series);

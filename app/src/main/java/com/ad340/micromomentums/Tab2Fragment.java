@@ -60,7 +60,6 @@ public class Tab2Fragment extends Fragment {
                     stocks.sort(Collections.reverseOrder());
 
                     mStocks = stocks;
-                    Log.d("meme", "mstock in 2 populated");
                     slv = new StockListView(getActivity(), stocks);
                     list.setAdapter(slv);
                 }

@@ -27,6 +27,8 @@ public class Tab4Fragment extends Fragment {
     private ListView list;
     private StockListView slv;
     private ArrayList<Stock> mStocks;
+    private ArrayList<Stock> rawStocks;
+    private Query<TrackedStock> query;
 
     private boolean symbolAsc = false;
     private boolean valueAsc = false;
@@ -44,27 +46,30 @@ public class Tab4Fragment extends Fragment {
         list = (ListView) view.findViewById(R.id.listView);
 
         Box<TrackedStock> stockBox = ObjectBox.get().boxFor(TrackedStock.class);
-        Query<TrackedStock> query = stockBox.query().equal(TrackedStock_.id, 0).build();
+        query = stockBox.query().equal(TrackedStock_.id, 0).build();
 
         FirebaseViewModel viewModel = new FirebaseViewModel();
         viewModel.getStocks(
                 (ArrayList<Stock> stocks) -> {
+
+                    ArrayList<Stock> trackedStocks = new ArrayList<>();
+
                     //Find isRising for each stock
                     for(Stock stock : stocks){
                         stock.calcualteRising();
+
                         List<TrackedStock> matches = query.setParameter(TrackedStock_.id, stock.id).find();
-                        if(matches.size() > 0)
+
+                        if(matches.size() > 0) {
                             stock.setTracked(true);
+                            trackedStocks.add(stock);
+                        }
                     }
                     //Sort stocks by amount of change descending
                     stocks.sort(Collections.reverseOrder());
-                    ArrayList<Stock> trackedStocks = new ArrayList<>();
-                    for(Stock stock : stocks)
-                        if(stock.isTracked())
-                            trackedStocks.add(stock);
 
+                    rawStocks = stocks;
                     mStocks = trackedStocks;
-                    Log.d("meme", "mstock in 4 populated");
                     slv = new StockListView(getActivity(), trackedStocks);
                     list.setAdapter(slv);
                 }
@@ -87,6 +92,7 @@ public class Tab4Fragment extends Fragment {
         TextView dailyPercent = view.findViewById(R.id.DailyPercentageHeader);
 
         symbol.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> symbolComparator = Comparator.comparing(Stock::getSymbol);
             mStocks.sort(symbolComparator);
 
@@ -97,6 +103,7 @@ public class Tab4Fragment extends Fragment {
             slv.refreshList(mStocks);
         });
         currentHead.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> valueComparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getValue()));
             mStocks.sort(valueComparator);
 
@@ -107,6 +114,7 @@ public class Tab4Fragment extends Fragment {
             slv.refreshList(mStocks);
         });
         last5Head.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> last5Comparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getLast5()));
             mStocks.sort(last5Comparator);
 
@@ -117,6 +125,7 @@ public class Tab4Fragment extends Fragment {
             slv.refreshList(mStocks);
         });
         last10Head.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> last10Comparator = Comparator.comparingDouble(s -> Double.parseDouble(s.getLast10()));;
             mStocks.sort(last10Comparator);
 
@@ -127,6 +136,7 @@ public class Tab4Fragment extends Fragment {
             slv.refreshList(mStocks);
         });
         percentage.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> percentageComparator = Comparator.comparing(Stock::getPercentChange);
             mStocks.sort(percentageComparator);
 
@@ -137,6 +147,7 @@ public class Tab4Fragment extends Fragment {
             slv.refreshList(mStocks);
         });
         buy.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Collections.sort(mStocks);
 
             if(!momentumAsc)
@@ -147,6 +158,7 @@ public class Tab4Fragment extends Fragment {
         });
 
         dailyPercent.setOnClickListener(v -> {
+            mStocks = updateTracked();
             Comparator<Stock> percentageDailyComparator = Comparator.comparing(Stock::getDayPercentChange);
             mStocks.sort(percentageDailyComparator);
 
@@ -159,5 +171,17 @@ public class Tab4Fragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private ArrayList<Stock> updateTracked(){
+        ArrayList<Stock> trackedStocks = new ArrayList<>();
+        for(Stock stock : rawStocks){
+            List<TrackedStock> matches = query.setParameter(TrackedStock_.id, stock.id).find();
+            if(matches.size() > 0) {
+                stock.setTracked(true);
+                trackedStocks.add(stock);
+            }
+        }
+        return trackedStocks;
     }
 }
