@@ -35,7 +35,7 @@ public class MainActivity extends FragmentActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "How It Works");
         adapter.addFragment(new Tab2Fragment(), "Stocks");
-        adapter.addFragment(new Tab4Fragment(), "tracked");
+        adapter.addFragment(new Tab4Fragment(), "Tracked");
         adapter.addFragment(new Tab3Fragment(), "About");
 
         viewPager.setAdapter(adapter);

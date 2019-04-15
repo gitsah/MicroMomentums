@@ -95,4 +95,29 @@ public class MainActivityTest
         onView(withText("About")).check(matches(withText("About")));
     }
 
+        @Test
+        public void onCreateClickTabs2 () {
+        onView(withText("How It Works")).check(matches(withText("How It Works")));
+        onView(withText("How It Works")).perform(click());
+        //onView(withId(R.id.container)).perform(swipeLeft());
+        onView(withText("Tracked")).check(matches(withText("Tracked")));
+        onView(withText("Tracked")).perform(click());
+
+        SystemClock.sleep(1800);
+
+        onView(allOf(withText("Symbol"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Current"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Last 5"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Last 10"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Last 10"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Last 10"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Last 10"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Avg % change"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Avg % change"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Avg % change"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Momentum"), isDisplayed())).perform(click()).perform(click());
+        onView(allOf(withText("Momentum"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Momentum"), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withText("Day % change"), isDisplayed())).perform(click()).perform(click());
+    }
 }
