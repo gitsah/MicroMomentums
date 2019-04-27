@@ -9,7 +9,6 @@ import android.widget.ListView;
 public class MainActivity extends FragmentActivity {
 
     private static final String TAG = "MainActivity";
-    private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
     ListView lst;
 
@@ -19,9 +18,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         ObjectBox.init(this);
         setContentView(R.layout.activity_main);
-
-        //Tab Layout
-        //mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
         // Set up  the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);

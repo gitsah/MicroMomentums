@@ -147,7 +147,7 @@ public class StockListView extends ArrayAdapter<Stock> {
 //            toast.show();
         });
 
-        boolean isRising = stocks.get(position).getIsRising();
+        boolean isRising = stocks.get(position).isRising();
 
         double percentChange = stocks.get(position).getPercentChange();
         viewHolder.tvw5.setText(String.valueOf(percentChange));

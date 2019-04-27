@@ -60,7 +60,7 @@ public class Stock implements Comparable<Stock>{
 
         double avgPercentChange = (change5to10 + changeCurrentTo5 + change10to15) / 3;
 
-        double dailyPercentChange = (currentVal - dayVal)/ dayVal* 100;
+        double dailyPercentChange = ((currentVal - dayVal)/ dayVal) * 100;
 
         DecimalFormat df = new DecimalFormat("###.####");
 
@@ -164,11 +164,7 @@ public class Stock implements Comparable<Stock>{
         this.dayHistory = dayHistory;
     }
 
-    public boolean isRising() {
-        return isRising;
-    }
-
-    public boolean getIsRising(){
+    public boolean isRising(){
         return isRising;
     }
 
