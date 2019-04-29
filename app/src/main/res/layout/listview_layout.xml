@@ -91,14 +91,6 @@
             android:src="@mipmap/downarrow"
             android:visibility="gone" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/momentum"-->
-            <!--android:layout_width="50dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text=""-->
-            <!--android:textAlignment="textEnd"-->
-            <!--android:textStyle="bold" />-->
-
         <TextView
             android:id="@+id/DailyPercentChange"
             android:layout_width="match_parent"

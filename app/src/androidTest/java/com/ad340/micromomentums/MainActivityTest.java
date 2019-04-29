@@ -32,7 +32,6 @@ public class MainActivityTest
 
             onView(withText("How It Works")).check(matches(withText("How It Works")));
             onView(withText("How It Works")).perform(click());
-            //onView(withId(R.id.container)).perform(swipeLeft());
             onView(withText("Stocks")).check(matches(withText("Stocks")));
             onView(withText("Stocks")).perform(click());
 
