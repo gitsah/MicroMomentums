@@ -6,12 +6,14 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import io.objectbox.Box;
+import io.objectbox.BoxStore;
+
 public class MainActivity extends FragmentActivity {
 
     private static final String TAG = "MainActivity";
     private ViewPager mViewPager;
     ListView lst;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,12 @@ public class MainActivity extends FragmentActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ObjectBox.get().close();
     }
 
     private void setupViewPager(ViewPager viewPager) {

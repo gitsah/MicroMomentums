@@ -16,6 +16,7 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
 
@@ -39,6 +40,7 @@ public class MainActivityTest
 
             onView(allOf(withText("Symbol"), isDisplayed())).perform(click()).perform(click());
             onView(allOf(withText("AAL"), isDisplayed())).perform(click());
+            onView(allOf(withId(R.id.popup_track_switch), isDisplayed())).perform(click());
             Espresso.pressBack();
             onView(allOf(withText("Current"), isDisplayed())).perform(click()).perform(click());
             onView(allOf(withText("Last 5"), isDisplayed())).perform(click()).perform(click());
@@ -62,6 +64,10 @@ public class MainActivityTest
             stock1.compareTo(stock2);
             stock2.compareTo(stock1);
 
+            if(stock2.isTracked())
+                stock1.setTracked(true);
+
+
             onView(withText("About")).perform(swipeLeft());
 
             onView(withText("About")).check(matches(withText("About")));
@@ -71,7 +77,6 @@ public class MainActivityTest
         public void onCreateClickTabs2 () {
             onView(withText("How It Works")).check(matches(withText("How It Works")));
             onView(withText("How It Works")).perform(click());
-            //onView(withId(R.id.container)).perform(swipeLeft());
             onView(withText("Tracked")).check(matches(withText("Tracked")));
             onView(withText("Tracked")).perform(click());
 
