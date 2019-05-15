@@ -58,4 +58,10 @@ For more information on Momentum trading, visit:\n
     <string name="daily_history_graph">Daily History Graph</string>
     <string name="no_graph_available_for_this_stock">No graph available for this stock</string>
     <string name="track">Track</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">Default</string>
+    <string name="msg_subscribe_failed">Failed to subscribe to topic</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="micro_momentums">Micro Momentums</string>
 </resources>

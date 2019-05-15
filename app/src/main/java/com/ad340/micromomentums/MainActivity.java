@@ -30,9 +30,9 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        ObjectBox.get().close();
+    protected void onResume() {
+        super.onResume();
+        ObjectBox.init(this);
     }
 
     private void setupViewPager(ViewPager viewPager) {
